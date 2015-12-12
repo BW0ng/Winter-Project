@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 /*
   Main class to create the first window
 */
@@ -9,6 +11,18 @@ public class IDE {
         new SplashScreen();
     }
     public static void newIDEWindow() {
-          new IDEWindow("IDE");
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }  catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        new IDEWindow("IDE");
    }
+
 }
