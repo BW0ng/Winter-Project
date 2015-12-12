@@ -1,10 +1,10 @@
-
 /*
   Main class to create the first window
 */
-import java.awt.*;
 public class IDE {
-  protected static long delayInSecs = 4;
+
+    protected static boolean testing = true;
+
     public static void main(String[] args) {
         new SplashScreen();
     }
