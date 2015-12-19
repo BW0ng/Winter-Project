@@ -5,7 +5,7 @@ import javax.swing.*;
 */
 public class IDE {
 
-    protected static boolean testing = true;
+    protected static boolean testing = false;
 
     public static void main(String[] args) {
         new SplashScreen();

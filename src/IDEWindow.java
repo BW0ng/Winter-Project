@@ -91,13 +91,13 @@ public class IDEWindow extends JFrame {
             saveFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
             saveFile.addActionListener(new MenuActionListener("Save"));
 
-        JMenuItem exit = new JMenuItem("Exit");
+        JMenuItem exit = new JMenuItem("Close Text Window");
             exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-            exit.addActionListener(new MenuActionListener("Exit"));
+            exit.addActionListener(new MenuActionListener("Close Text Window"));
 
-        JMenuItem quit = new JMenuItem("Quit");
+        JMenuItem quit = new JMenuItem("Quit IDE");
             quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-            quit.addActionListener(new MenuActionListener("Quit"));
+            quit.addActionListener(new MenuActionListener("Quit IDE"));
 
         file.add(newMenu);
         file.add(openFile);
