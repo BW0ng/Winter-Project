@@ -14,6 +14,8 @@ public class IDEWindow extends JFrame {
     JPanel filePanel;
     JPanel buttonPanel;
 
+    protected boolean isSaved = false;
+
     /**
      * Basic constructor used to set up the JFrame for the entire program
      *

@@ -17,8 +17,12 @@ public class ToolbarFunctions {
     /**
      * Function for saving a file
      */
-    public static void save() {
+    public static void save(Object o) {
         System.out.println("Saving File");
+        if(o instanceof Component) {
+            Window w = findWindow((Component) o);
+            ((IDEWindow) w).isSaved = true;
+        }
     }
 
     /**
@@ -30,7 +34,16 @@ public class ToolbarFunctions {
         System.out.println("Closing Window");
         if(o instanceof Component) {
             Window w = findWindow((Component) o);
-            w.dispose();
+            if(((IDEWindow) w).isSaved) {
+                w.dispose();
+            } else {
+                int reply = JOptionPane.showConfirmDialog(w, "Do you want to save?", "Save", JOptionPane.YES_NO_CANCEL_OPTION);
+                if(reply == JOptionPane.YES_OPTION) {
+                    save(o);
+                } else if(reply == JOptionPane.NO_OPTION) {
+                    w.dispose();
+                } 
+            }
         }
     }
 

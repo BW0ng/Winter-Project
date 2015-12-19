@@ -26,7 +26,7 @@ public class MenuActionListener implements ActionListener {
             ToolbarFunctions.open();
 
         } else if (s.equals("Save")) {
-            ToolbarFunctions.save();
+            ToolbarFunctions.save(e.getSource());
 
         } else if (s.equals("Close Window")) {
             ToolbarFunctions.close(e.getSource());
