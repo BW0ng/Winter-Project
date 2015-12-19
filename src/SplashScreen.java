@@ -10,10 +10,16 @@ public class SplashScreen extends JWindow {
       private static int PROGBAR_MAX = 105;
       private static Timer progressBarTimer;
 
-
+    /**
+     * Constructor for the startup screen
+     */
       public SplashScreen() {
             createSplash();
       }
+
+    /**
+     * Method to create the startup screen
+     */
       private void createSplash() {
 
             JPanel panel = new JPanel();
@@ -36,6 +42,10 @@ public class SplashScreen extends JWindow {
 
             startProgressBar();
       }
+
+    /**
+     * Method to show the progress bar and to move it
+     */
       private void startProgressBar() {
           if(IDE.testing) {
               progressBarTimer = new Timer(1, new ActionListener() {

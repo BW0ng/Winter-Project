@@ -1,11 +1,13 @@
 import javax.swing.*;
 
-/*
-  Main class to create the first window
-*/
+/**
+ * Brandon Wong and Topher Thomas
+ * Winter-Project
+ */
 public class IDE {
 
-    protected static boolean testing = false;
+    protected static boolean testing = true;
+    protected static int counter = 0;
 
     public static void main(String[] args) {
         new SplashScreen();

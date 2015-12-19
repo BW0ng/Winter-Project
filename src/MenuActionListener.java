@@ -1,9 +1,18 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Brandon Wong and Topher Thomas
+ * Winter-Project
+ */
 
 public class MenuActionListener implements ActionListener {
     String menuItem;
+
+    /**
+     * Constructor for the actionListener for the Toolbar
+     * @param menuItem
+     */
     public MenuActionListener(String menuItem) {
         this.menuItem = menuItem;
     }
@@ -11,6 +20,26 @@ public class MenuActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // TODO Implement the functions when the menuItem is selected
         // TODO Need to fix this.
-        System.out.println(e.getActionCommand());
+
+        String s = e.getActionCommand();
+        if (s.equals("Open")) {
+            ToolbarFunctions.open();
+
+        } else if (s.equals("Save")) {
+            ToolbarFunctions.save();
+
+        } else if (s.equals("Close Window")) {
+            ToolbarFunctions.close(e.getSource());
+
+        } else if (s.equals("Quit IDE")) {
+            ToolbarFunctions.quit();
+
+        } else if (s.equals("New Window")) {
+            ToolbarFunctions.newWindow();
+        }
+        else {
+            ToolbarFunctions.cannotFind();
+
+        }
     }
 }
