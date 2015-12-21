@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
  * Winter-Project
  */
 
+// TODO All MenuBars are not working when clicked. It works for shortcuts. Object passed in is MenuBar
 public class MenuActionListener implements ActionListener {
     String menuItem;
 
@@ -41,8 +42,9 @@ public class MenuActionListener implements ActionListener {
         else if (s.equals("New Window")) {
             ToolbarFunctions.newWindow();
         }
-        else if (s.equals("Text File")) {
+        else if (s.equals("Text Window")) {
             ToolbarFunctions.newTextWindow();
+            System.out.println("New Text Window");
         }
         else {
             System.out.println(s);

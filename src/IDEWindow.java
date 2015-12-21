@@ -11,15 +11,16 @@ import java.util.ArrayList;
 public class IDEWindow extends JFrame {
 
     JPanel cmdPanel;
-    protected static JPanel textEditor;
+    protected static JTabbedPane textEditor;
     JPanel filePanel;
     JPanel buttonPanel;
 
+
     protected static int textHeight;
     protected static int textWidth;
+    protected static int numberOfTextWindows;
     protected static boolean isSaved = false;
-    protected static ArrayList<JPanel> textEditorPanels;
-
+    protected static ArrayList<TextEditorPanel> textEditorPanels;
     /**
      * Basic constructor used to set up the JFrame for the entire program
      *
@@ -39,11 +40,12 @@ public class IDEWindow extends JFrame {
         setSize(width, height);
         setLocation(65 + (IDE.counter*5), 50 + (IDE.counter*5));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        textEditorPanels = new ArrayList<JPanel>();
+        textEditorPanels = new ArrayList<TextEditorPanel>();
+        numberOfTextWindows = 0;
 
         // Instantiate JPanels
         cmdPanel = new JPanel();
-        textEditor = new JPanel();
+        textEditor = new JTabbedPane();
         filePanel = new JPanel();
         buttonPanel = new JPanel();
 
@@ -79,7 +81,8 @@ public class IDEWindow extends JFrame {
         filePanel.setBackground(Color.ORANGE);
         cmdPanel.setBackground(Color.BLUE);
 
-        textEditor.add(new TextEditorPanel(textWidth, textHeight));
+        TextEditorPanel temp = new TextEditorPanel(textWidth, textHeight, numberOfTextWindows);
+        textEditor.addTab("New File", temp);
 
         IDEPanel.add(buttonPanel);
         IDEPanel.add(filePanel);
@@ -94,7 +97,7 @@ public class IDEWindow extends JFrame {
 
         setVisible(true);
 
-        textEditorPanels.add(textEditor);
+        textEditorPanels.add(temp);
     }
 
     /**
@@ -113,9 +116,9 @@ public class IDEWindow extends JFrame {
 
         JMenu newMenu = new JMenu("New");
             JMenuItem newWindow = new JMenuItem("New Window");
-            JMenuItem textFile = new JMenuItem("Text File");
+            JMenuItem textFile = new JMenuItem("Text Window");
                 textFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-                textFile.addActionListener(new MenuActionListener("Text File"));
+                textFile.addActionListener(new MenuActionListener("Text Window"));
             JMenuItem javaFile = new JMenuItem("Java File");
             JMenuItem cFile = new JMenuItem("C File");
             JMenuItem cppFile = new JMenuItem("C++ File");
