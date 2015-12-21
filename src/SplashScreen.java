@@ -24,8 +24,6 @@ public class SplashScreen extends JWindow {
 
             JPanel panel = new JPanel();
             panel.setLayout(new BorderLayout());
-            // TODO Need to figure out how to do relative addressing aka ("../resouces/SplashScreen.jpg")
-            // TODO and not just put it in the classes folder
 
             ImageIcon icon = new ImageIcon("../resources/SplashScreen.jpg");
             JLabel splashImage = new JLabel(icon);
