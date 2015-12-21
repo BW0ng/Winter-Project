@@ -20,13 +20,15 @@ public class ToolbarFunctions {
      * Function for saving a file
      */
     public static void save(Object o) {
+
         // TODO Need to fix Saving function so it saves.
         System.out.println("Saving File with Dialogue ");
         System.out.println(o.getClass().getName());
         if(o instanceof Component) {
-            Window w = findWindow((Component) o);
 
+            Window w = findWindow((Component) o);
             if(w.getFocusOwner() instanceof JTextPane) {
+                //Not Getting Here
 
                 JFileChooser fileChooser = new JFileChooser();
                 int fileChooserSelection = fileChooser.showSaveDialog(w.getFocusOwner());
@@ -50,6 +52,21 @@ public class ToolbarFunctions {
             }
 
         }
+
+       // System.out.println("Saving File with Dialogue ");
+       // System.out.println(o.getClass().getName());
+       // JFileChooser fileChooser = new JFileChooser();
+       // fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
+       // int result = fileChooser.showSaveDialog(window);
+       // if (result == JFileChooser.APPROVE_OPTION) {
+       //     try {
+       //         PrintWriter out = new PrintWriter(fileChooser.getSelectedFile());
+       //         out.write(((TextEditorPanel) (w.getFocusOwner())).getText());
+       //         out.close();
+       //     }catch(IOException e) {
+       //         e.printStackTrace();
+        //    }
+        //}
     }
 
     /**

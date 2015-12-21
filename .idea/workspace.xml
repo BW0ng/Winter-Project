@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e70320a-c45c-48c6-9e16-7964264b5aff" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen$1.class" afterPath="$PROJECT_DIR$/classes/SplashScreen$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen$2.class" afterPath="$PROJECT_DIR$/classes/SplashScreen$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen.class" afterPath="$PROJECT_DIR$/classes/SplashScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/ToolbarFunctions.class" afterPath="$PROJECT_DIR$/classes/ToolbarFunctions.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SplashScreen.java" afterPath="$PROJECT_DIR$/src/SplashScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ToolbarFunctions.java" afterPath="$PROJECT_DIR$/src/ToolbarFunctions.java" />
     </list>
     <ignored path="Winter-Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,18 +44,20 @@
       <file leaf-file-name="IDEWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IDEWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="60.407406">
+            <state vertical-scroll-proportion="-1.8148148">
               <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-              <folding />
+              <folding>
+                <element signature="method#setUpMenuBar#0;class#IDEWindow#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilePanel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FilePanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.703703">
-              <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.48536208">
+              <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
               <folding>
                 <element signature="docComment;class#FilePanel#0" expanded="false" />
               </folding>
@@ -69,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SplashScreen.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SplashScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SplashScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4622496">
-              <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+            <state vertical-scroll-proportion="-10.555555">
+              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
               <folding>
                 <element signature="method#startProgressBar#0;class#SplashScreen#0" expanded="false" />
               </folding>
@@ -85,30 +93,9 @@
         <entry file="file://$PROJECT_DIR$/src/MenuActionListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-11.259259">
-              <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ToolbarFunctions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ToolbarFunctions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.888889">
-              <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#save#0;class#ToolbarFunctions#0" expanded="false" />
-                <element signature="method#close#0;class#ToolbarFunctions#0" expanded="false" />
-                <element signature="e#2642#2643#0" expanded="true" />
-                <element signature="e#2672#2673#0" expanded="true" />
-                <element signature="method#newWindow#0;class#ToolbarFunctions#0" expanded="false" />
-                <element signature="method#newTextWindow#0;class#ToolbarFunctions#0" expanded="false" />
-                <element signature="docComment;method#cannotFind#0;class#ToolbarFunctions#0" expanded="false" />
-                <element signature="docComment;method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
-                <element signature="method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -142,10 +129,10 @@
         <option value="$PROJECT_DIR$/src/IDE.java" />
         <option value="$PROJECT_DIR$/src/TextEditorPanel.java" />
         <option value="$PROJECT_DIR$/src/TextEditorFocusListener.java" />
-        <option value="$PROJECT_DIR$/src/ToolbarFunctions.java" />
         <option value="$PROJECT_DIR$/src/FilePanel.java" />
         <option value="$PROJECT_DIR$/src/IDEWindow.java" />
         <option value="$PROJECT_DIR$/src/MenuActionListener.java" />
+        <option value="$PROJECT_DIR$/src/ToolbarFunctions.java" />
         <option value="$PROJECT_DIR$/src/SplashScreen.java" />
       </list>
     </option>
@@ -673,7 +660,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#setUpMenuBar#0;class#IDEWindow#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -713,15 +702,10 @@
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#save#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#close#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="e#2642#2643#0" expanded="true" />
-            <element signature="e#2672#2673#0" expanded="true" />
-            <element signature="method#newWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#newTextWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="docComment;method#cannotFind#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="docComment;method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
+            <element signature="e#3369#3370#0" expanded="true" />
+            <element signature="e#3399#3400#0" expanded="true" />
+            <element signature="e#4034#4035#0" expanded="true" />
+            <element signature="e#4088#4089#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -738,7 +722,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#setUpMenuBar#0;class#IDEWindow#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -778,15 +764,10 @@
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#save#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#close#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="e#2642#2643#0" expanded="true" />
-            <element signature="e#2672#2673#0" expanded="true" />
-            <element signature="method#newWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#newTextWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="docComment;method#cannotFind#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="docComment;method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
+            <element signature="e#3369#3370#0" expanded="true" />
+            <element signature="e#3399#3400#0" expanded="true" />
+            <element signature="e#4034#4035#0" expanded="true" />
+            <element signature="e#4088#4089#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -811,7 +792,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding />
+          <folding>
+            <element signature="method#setUpMenuBar#0;class#IDEWindow#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -831,15 +814,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#save#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#close#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="e#2642#2643#0" expanded="true" />
-            <element signature="e#2672#2673#0" expanded="true" />
-            <element signature="method#newWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#newTextWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="docComment;method#cannotFind#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="docComment;method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
+            <element signature="e#3369#3370#0" expanded="true" />
+            <element signature="e#3399#3400#0" expanded="true" />
+            <element signature="e#4034#4035#0" expanded="true" />
+            <element signature="e#4088#4089#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -866,7 +844,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#setUpMenuBar#0;class#IDEWindow#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -909,7 +889,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#setUpMenuBar#0;class#IDEWindow#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -928,45 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ToolbarFunctions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.888889">
-          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#save#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#close#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="e#2642#2643#0" expanded="true" />
-            <element signature="e#2672#2673#0" expanded="true" />
-            <element signature="method#newWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#newTextWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="docComment;method#cannotFind#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="docComment;method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#findWindow#0;class#ToolbarFunctions#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MenuActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.259259">
-          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.703703">
-          <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
-          <folding>
-            <element signature="docComment;class#FilePanel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TextEditorPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.777778">
@@ -977,20 +920,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IDEWindow.java">
+    <entry file="file://$PROJECT_DIR$/OtherCode/OrangeCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="60.407406">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="215" column="7" selection-start-line="204" selection-start-column="6" selection-end-line="215" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#11352#0" expanded="true" />
+            <element signature="method#OrangeCode#0;class#OrangeCode#0" expanded="false" />
+            <element signature="method#StartWindow#0;class#StartWindow#0;class#OrangeCode#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ToolbarFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9259257">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3369#3370#0" expanded="true" />
+            <element signature="e#3399#3400#0" expanded="true" />
+            <element signature="e#4034#4035#0" expanded="true" />
+            <element signature="e#4088#4089#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SplashScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4622496">
-          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+        <state vertical-scroll-proportion="-10.555555">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
           <folding>
             <element signature="method#startProgressBar#0;class#SplashScreen#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MenuActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.259259">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IDEWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8148148">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding>
+            <element signature="method#setUpMenuBar#0;class#IDEWindow#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48536208">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding>
+            <element signature="docComment;class#FilePanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
