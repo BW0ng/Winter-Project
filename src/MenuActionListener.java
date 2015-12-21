@@ -33,7 +33,6 @@ public class MenuActionListener implements ActionListener {
         }
         else if (s.equals("Close Window")) {
             ToolbarFunctions.close(e.getSource());
-
         }
         else if (s.equals("Quit IDE")) {
             ToolbarFunctions.quit();

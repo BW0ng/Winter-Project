@@ -26,7 +26,9 @@ public class SplashScreen extends JWindow {
             panel.setLayout(new BorderLayout());
             // TODO Need to figure out how to do relative addressing aka ("../resouces/SplashScreen.jpg")
             // TODO and not just put it in the classes folder
-            JLabel splashImage = new JLabel(new ImageIcon(getClass().getResource("SplashScreen.jpg")));
+
+            ImageIcon icon = new ImageIcon("../resources/SplashScreen.jpg");
+            JLabel splashImage = new JLabel(icon);
             panel.add(splashImage);
 
             progressBar = new JProgressBar();
