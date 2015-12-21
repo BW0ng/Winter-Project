@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e70320a-c45c-48c6-9e16-7964264b5aff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen$1.class" afterPath="$PROJECT_DIR$/classes/SplashScreen$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen$2.class" afterPath="$PROJECT_DIR$/classes/SplashScreen$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen.class" afterPath="$PROJECT_DIR$/classes/SplashScreen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/ToolbarFunctions.class" afterPath="$PROJECT_DIR$/classes/ToolbarFunctions.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SplashScreen.java" afterPath="$PROJECT_DIR$/src/SplashScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ToolbarFunctions.java" afterPath="$PROJECT_DIR$/src/ToolbarFunctions.java" />
     </list>
     <ignored path="Winter-Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilePanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FilePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48536208">
+            <state vertical-scroll-proportion="-11.666667">
               <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
               <folding>
                 <element signature="docComment;class#FilePanel#0" expanded="false" />
@@ -77,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SplashScreen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SplashScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SplashScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.555555">
-              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.64714944">
+              <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
               <folding>
                 <element signature="method#startProgressBar#0;class#SplashScreen#0" expanded="false" />
               </folding>
@@ -634,7 +628,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/SplashScreen.java</url>
-          <line>29</line>
+          <line>28</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -946,16 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SplashScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.555555">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-          <folding>
-            <element signature="method#startProgressBar#0;class#SplashScreen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MenuActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.259259">
@@ -978,10 +962,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48536208">
+        <state vertical-scroll-proportion="-11.666667">
           <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
           <folding>
             <element signature="docComment;class#FilePanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SplashScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64714944">
+          <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
+          <folding>
+            <element signature="method#startProgressBar#0;class#SplashScreen#0" expanded="false" />
           </folding>
         </state>
       </provider>
