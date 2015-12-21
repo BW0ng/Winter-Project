@@ -78,7 +78,10 @@ public class IDEWindow extends JFrame {
         cmdPanel.setPreferredSize(new Dimension(width-10, (height-585)));
 
         buttonPanel.setBackground(Color.BLACK);
-        filePanel.setBackground(Color.ORANGE);
+
+        FilePanel fileTree = new FilePanel();
+        filePanel.add(fileTree);
+
         cmdPanel.setBackground(Color.BLUE);
 
         TextEditorPanel temp = new TextEditorPanel(textWidth, textHeight, numberOfTextWindows);
