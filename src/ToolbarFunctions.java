@@ -18,10 +18,17 @@ public class ToolbarFunctions {
      * Function for saving a file
      */
     public static void save(Object o) {
-        System.out.println("Saving File");
+        // TODO Need to fix Saving function so it saves.
+        System.out.println("Saving File ");
         if(o instanceof Component) {
             Window w = findWindow((Component) o);
-            ((IDEWindow) w).isSaved = true;
+            System.out.print(w.getFocusOwner());
+            JFileChooser fc = new JFileChooser();
+            int filename = fc.showSaveDialog(w.getFocusOwner());
+            if(filename == JFileChooser.SAVE_DIALOG) {
+                ((IDEWindow) w).isSaved = true;
+            }
+
         }
     }
 
@@ -35,14 +42,16 @@ public class ToolbarFunctions {
         if(o instanceof Component) {
             Window w = findWindow((Component) o);
             if(((IDEWindow) w).isSaved) {
+                // TODO Need to add it so it exits the JEditorTextPane
                 w.dispose();
             } else {
-                int reply = JOptionPane.showConfirmDialog(w, "Do you want to save?", "Save", JOptionPane.YES_NO_CANCEL_OPTION);
+                int reply = JOptionPane.showConfirmDialog(null, "Do you want to save?", "Save", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
                 if(reply == JOptionPane.YES_OPTION) {
                     save(o);
                 } else if(reply == JOptionPane.NO_OPTION) {
+                    // TODO Need to add it so it exits the JEditorTextPane
                     w.dispose();
-                } 
+                }
             }
         }
     }
@@ -60,6 +69,21 @@ public class ToolbarFunctions {
     public static void newWindow() {
         IDE.counter++;
         new IDEWindow("IDE " + IDE.counter);
+    }
+
+    public static void newTextWindow() {
+        // TODO Need to add it so it splitPanel works with JTextEditorPane
+        TextEditorPanel temp = new TextEditorPanel(
+                IDEWindow.textWidth/(IDEWindow.textEditorPanels.size()+1), IDEWindow.textHeight);
+        if(IDEWindow.textEditorPanels.size() > 0) {
+            JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, IDEWindow.textEditor, temp);
+            splitPane.setOneTouchExpandable(true);
+            splitPane.setContinuousLayout(true);
+            IDEWindow.textEditorPanels.add(temp);
+            IDEWindow.textEditor.removeAll();
+            IDEWindow.textEditor.add(splitPane);
+            IDEWindow.textEditor.repaint();
+        }
     }
 
     /**

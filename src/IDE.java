@@ -14,7 +14,10 @@ public class IDE {
     }
     public static void newIDEWindow() {
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            System.getProperty("com.apple.laf.useScreenMenuBar", "true");
+            System.getProperty("com.apple.mrj.application.apple.menu.about.name", "IDE");
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }  catch (IllegalAccessException e) {

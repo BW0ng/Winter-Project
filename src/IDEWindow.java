@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 /**
  * Brandon Wong and Topher Thomas
@@ -10,11 +11,14 @@ import java.awt.event.KeyEvent;
 public class IDEWindow extends JFrame {
 
     JPanel cmdPanel;
-    JPanel textEditor;
+    protected static JPanel textEditor;
     JPanel filePanel;
     JPanel buttonPanel;
 
-    protected boolean isSaved = false;
+    protected static int textHeight;
+    protected static int textWidth;
+    protected static boolean isSaved = false;
+    protected static ArrayList<JPanel> textEditorPanels;
 
     /**
      * Basic constructor used to set up the JFrame for the entire program
@@ -35,6 +39,7 @@ public class IDEWindow extends JFrame {
         setSize(width, height);
         setLocation(65 + (IDE.counter*5), 50 + (IDE.counter*5));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        textEditorPanels = new ArrayList<JPanel>();
 
         // Instantiate JPanels
         cmdPanel = new JPanel();
@@ -66,12 +71,15 @@ public class IDEWindow extends JFrame {
         buttonPanel.setPreferredSize(new Dimension(width-10, 20));
         filePanel.setPreferredSize(new Dimension(150, 500));
         textEditor.setPreferredSize(new Dimension(width-165, 500));
+        textHeight = 500;
+        textWidth = width-165;
         cmdPanel.setPreferredSize(new Dimension(width-10, (height-585)));
 
         buttonPanel.setBackground(Color.BLACK);
         filePanel.setBackground(Color.ORANGE);
-        textEditor.setBackground(Color.YELLOW);
         cmdPanel.setBackground(Color.BLUE);
+
+        textEditor.add(new TextEditorPanel(textWidth, textHeight));
 
         IDEPanel.add(buttonPanel);
         IDEPanel.add(filePanel);
@@ -85,6 +93,8 @@ public class IDEWindow extends JFrame {
         repaint();
 
         setVisible(true);
+
+        textEditorPanels.add(textEditor);
     }
 
     /**
@@ -100,15 +110,17 @@ public class IDEWindow extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         JMenu file = new JMenu("File");
 
-        menuBar.add(file);
 
         JMenu newMenu = new JMenu("New");
             JMenuItem newWindow = new JMenuItem("New Window");
             JMenuItem textFile = new JMenuItem("Text File");
+                textFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+                textFile.addActionListener(new MenuActionListener("Text File"));
             JMenuItem javaFile = new JMenuItem("Java File");
             JMenuItem cFile = new JMenuItem("C File");
             JMenuItem cppFile = new JMenuItem("C++ File");
             newMenu.add(newWindow);
+            newMenu.add(new JPopupMenu.Separator());
             newMenu.add(textFile);
             newMenu.add(javaFile);
             newMenu.add(cFile);
@@ -135,8 +147,11 @@ public class IDEWindow extends JFrame {
         file.add(newMenu);
         file.add(openFile);
         file.add(saveFile);
+        file.add(new JPopupMenu.Separator());
         file.add(exit);
         file.add(quit);
+
+        menuBar.add(file);
 
         return menuBar;
     }
