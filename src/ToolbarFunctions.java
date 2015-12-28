@@ -23,12 +23,14 @@ public class ToolbarFunctions {
 
         // TODO Need to fix Saving function so it saves.
         System.out.println("Saving File with Dialogue ");
-        System.out.println(o.getClass().getName());
+        System.out.println("O.getClass().getName: " + o.getClass().getName());
         if(o instanceof Component) {
 
             Window w = findWindow((Component) o);
+
             if(w.getFocusOwner() instanceof JTextPane) {
                 //Not Getting Here
+                System.out.println("Reached loop");
 
                 JFileChooser fileChooser = new JFileChooser();
                 int fileChooserSelection = fileChooser.showSaveDialog(w.getFocusOwner());
@@ -110,8 +112,8 @@ public class ToolbarFunctions {
 
     public static void newTextWindow() {
         // TODO Need to add it so it splitPanel works with JTextEditorPane
-        TextEditorPanel temp = new TextEditorPanel(
-                IDEWindow.textWidth, IDEWindow.textHeight, IDEWindow.numberOfTextWindows);
+        TextEditorPanel temp = new TextEditorPanel(IDEWindow.numberOfTextWindows,
+                    IDEWindow.textEditor);
         IDEWindow.textEditor.addTab("New File " + IDEWindow.numberOfTextWindows, temp);
 
     }

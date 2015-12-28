@@ -22,6 +22,7 @@ public class MenuActionListener implements ActionListener {
         // TODO Implement the functions when the menuItem is selected
         // TODO Need to fix this.
 
+
         String s = e.getActionCommand();
         if (s.equals("Open")) {
             ToolbarFunctions.open();

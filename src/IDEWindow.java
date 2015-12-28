@@ -1,7 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+
+import static javax.swing.JSplitPane.HORIZONTAL_SPLIT;
+import static javax.swing.JSplitPane.VERTICAL_SPLIT;
+import static javax.swing.SpringLayout.*;
 
 /**
  * Brandon Wong and Topher Thomas
@@ -16,15 +22,14 @@ public class IDEWindow extends JFrame {
     JPanel buttonPanel;
 
 
-    protected static int textHeight;
-    protected static int textWidth;
+    protected static int spaceBetweenComponents = 5;
     protected static int numberOfTextWindows;
     protected static boolean isSaved = false;
     protected static ArrayList<TextEditorPanel> textEditorPanels;
     /**
      * Basic constructor used to set up the JFrame for the entire program
      *
-     * @param name
+     * @param name Name of the IDE Window
      */
     public IDEWindow(String name) {
         int width;
@@ -40,6 +45,7 @@ public class IDEWindow extends JFrame {
         setSize(width, height);
         setLocation(65 + (IDE.counter*5), 50 + (IDE.counter*5));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         textEditorPanels = new ArrayList<TextEditorPanel>();
         numberOfTextWindows = 0;
 
@@ -51,46 +57,72 @@ public class IDEWindow extends JFrame {
 
 
         SpringLayout layout = new SpringLayout();
-        JPanel IDEPanel = new JPanel(layout);
+        final JPanel IDEPanel = new JPanel(layout);
+
+        IDEPanel.addComponentListener(new ComponentListener() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                System.out.println("Component Resized");
+                System.out.printf("Height: %d, Width: %d\n\n", getHeight(), getWidth());
+                updatePanel(getSize());
+            }
+
+            @Override
+            public void componentMoved(ComponentEvent e) {
+
+            }
+
+            @Override
+            public void componentShown(ComponentEvent e) {
+
+            }
+
+            @Override
+            public void componentHidden(ComponentEvent e) {
+
+            }
+        });
 
         // Layout for Button Panel
-        layout.putConstraint(SpringLayout.NORTH, buttonPanel, 5, SpringLayout.NORTH, IDEPanel);
-        layout.putConstraint(SpringLayout.WEST, buttonPanel, 5, SpringLayout.WEST, IDEPanel);
+        layout.putConstraint(NORTH, buttonPanel, 5, NORTH, IDEPanel);
+        layout.putConstraint(WEST, buttonPanel, 5, WEST, IDEPanel);
 
         // Layout for FilePanel
-        layout.putConstraint(SpringLayout.NORTH, filePanel, 5, SpringLayout.SOUTH, buttonPanel);
-        layout.putConstraint(SpringLayout.WEST, filePanel, 5, SpringLayout.WEST, IDEPanel);
+        layout.putConstraint(NORTH, filePanel, 5, SOUTH, buttonPanel);
+        layout.putConstraint(WEST, filePanel, 5, WEST, IDEPanel);
 
         // Layout for textEditor
-        layout.putConstraint(SpringLayout.NORTH, textEditor, 5, SpringLayout.SOUTH, buttonPanel);
-        layout.putConstraint(SpringLayout.WEST, textEditor, 5, SpringLayout.EAST, filePanel);
+        layout.putConstraint(NORTH, textEditor, 5, SOUTH, buttonPanel);
+        layout.putConstraint(WEST, textEditor, 5, EAST, filePanel);
 
         // Layout for cmdPanel
-        layout.putConstraint(SpringLayout.NORTH, cmdPanel, 5, SpringLayout.SOUTH, filePanel);
-        layout.putConstraint(SpringLayout.WEST, cmdPanel, 5, SpringLayout.WEST, IDEPanel);
+        layout.putConstraint(NORTH, cmdPanel, 5, SOUTH, filePanel);
+        layout.putConstraint(WEST, cmdPanel, 5, WEST, IDEPanel);
 
-        // Set up the default sizes of the JPanels
-        buttonPanel.setPreferredSize(new Dimension(width-10, 20));
-        filePanel.setPreferredSize(new Dimension(150, 500));
-        textEditor.setPreferredSize(new Dimension(width-165, 500));
-        textHeight = 500;
-        textWidth = width-165;
-        cmdPanel.setPreferredSize(new Dimension(width-10, (height-585)));
 
         buttonPanel.setBackground(Color.BLACK);
 
-        FilePanel fileTree = new FilePanel();
+        FilePanel fileTree = new FilePanel(filePanel);
         filePanel.add(fileTree);
 
         cmdPanel.setBackground(Color.BLUE);
 
-        TextEditorPanel temp = new TextEditorPanel(textWidth, textHeight, numberOfTextWindows);
+        TextEditorPanel temp = new TextEditorPanel(numberOfTextWindows, textEditor);
         textEditor.addTab("New File", temp);
 
-        IDEPanel.add(buttonPanel);
-        IDEPanel.add(filePanel);
-        IDEPanel.add(textEditor);
-        IDEPanel.add(cmdPanel);
+        updatePanel(getSize());
+
+        JSplitPane middle = new JSplitPane(HORIZONTAL_SPLIT, filePanel, textEditor);
+        JSplitPane top = new JSplitPane(VERTICAL_SPLIT, buttonPanel, middle);
+        JSplitPane whole = new JSplitPane(VERTICAL_SPLIT, top, cmdPanel);
+
+        middle.setOneTouchExpandable(true);
+        whole.setOneTouchExpandable(true);
+        middle.setResizeWeight(0.5);
+        whole.setResizeWeight(0.5);
+        top.setDividerSize(0);
+
+        IDEPanel.add(whole);
 
         add(IDEPanel);
 
@@ -101,6 +133,7 @@ public class IDEWindow extends JFrame {
         setVisible(true);
 
         textEditorPanels.add(temp);
+
     }
 
     /**
@@ -114,8 +147,10 @@ public class IDEWindow extends JFrame {
      */
     public JMenuBar setUpMenuBar() {
         JMenuBar menuBar = new JMenuBar();
-        JMenu file = new JMenu("File");
 
+        menuBar.setFocusable(false);
+
+        JMenu file = new JMenu("File");
 
         JMenu newMenu = new JMenu("New");
             JMenuItem newWindow = new JMenuItem("New Window");
@@ -160,5 +195,27 @@ public class IDEWindow extends JFrame {
         menuBar.add(file);
 
         return menuBar;
+    }
+    public void updatePanel(Dimension dimension) {
+        int width = (int) dimension.getWidth();
+        int height = (int) dimension.getHeight();
+
+        int buttonPanelWidth = width - (2*spaceBetweenComponents);
+        int buttonPanelHeight = 20;
+        int filePanelWidth = width/5;
+        int filePanelHeight = 3*height/4;
+        int textEditorWidth = width - (filePanelWidth + (2*spaceBetweenComponents));
+        int textEditorHeight = 3*height/4;
+        int cmdPanelWidth = width - (2*spaceBetweenComponents);
+        int cmdPanelHeight = height - (buttonPanelHeight + filePanelHeight + (2*spaceBetweenComponents) + 30);
+
+        // Set up the default sizes of the JPanels
+        buttonPanel.setPreferredSize(new Dimension(buttonPanelWidth, buttonPanelHeight));
+        filePanel.setPreferredSize(new Dimension(filePanelWidth, filePanelHeight));
+        textEditor.setPreferredSize(new Dimension(textEditorWidth, textEditorHeight));
+        cmdPanel.setPreferredSize(new Dimension(cmdPanelWidth, cmdPanelHeight));
+
+        repaint();
+
     }
 }

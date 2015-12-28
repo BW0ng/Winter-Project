@@ -13,14 +13,14 @@ import java.util.Vector;
  */
 
 public class FilePanel extends JPanel {
+    protected JPanel pane;
 
     /**
      * Construct a FileTree
      */
-    public FilePanel() {
-
+    public FilePanel(JPanel panel) {
+        pane = panel;
         setLayout(new BorderLayout());
-
         // Make a tree list with all the nodes, and make it a JTree
         JTree tree = new JTree(addNodes(null, new File(System.getProperty("user.dir"))));
 
@@ -34,10 +34,13 @@ public class FilePanel extends JPanel {
             }
         });
 
+        setSize(panel.getPreferredSize());
         // Lastly, put the JTree into a JScrollPane.
         JScrollPane scrollpane = new JScrollPane();
         scrollpane.getViewport().add(tree);
+
         add(BorderLayout.CENTER, scrollpane);
+
     }
 
     /**
@@ -78,11 +81,13 @@ public class FilePanel extends JPanel {
 
     public Dimension getMinimumSize() {
 
-        return new Dimension(200, 400);
+        return new Dimension(15, 200);
     }
 
     public Dimension getPreferredSize() {
 
-        return new Dimension(200, 400);
+        int height = pane.getSize().height - 5;
+        int width = pane.getSize().width;
+        return new Dimension(width, height);
     }
 }
