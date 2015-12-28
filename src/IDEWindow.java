@@ -71,7 +71,7 @@ public class IDEWindow extends JFrame {
 
         // Set up the default sizes of the JPanels
         buttonPanel.setPreferredSize(new Dimension(width-10, 20));
-        filePanel.setPreferredSize(new Dimension(150, 500));
+        //filePanel.setPreferredSize(new Dimension(150, 500));
         textEditor.setPreferredSize(new Dimension(width-165, 500));
         textHeight = 500;
         textWidth = width-165;
@@ -87,10 +87,13 @@ public class IDEWindow extends JFrame {
         TextEditorPanel temp = new TextEditorPanel(textWidth, textHeight, numberOfTextWindows);
         textEditor.addTab("New File", temp);
 
-        IDEPanel.add(buttonPanel);
-        IDEPanel.add(filePanel);
-        IDEPanel.add(textEditor);
-        IDEPanel.add(cmdPanel);
+
+        JSplitPane middle = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, filePanel, textEditor);
+        JSplitPane top = new JSplitPane(JSplitPane.VERTICAL_SPLIT, buttonPanel, middle);
+        JSplitPane whole = new JSplitPane(JSplitPane.VERTICAL_SPLIT, top, cmdPanel);
+        top.setDividerSize(0);
+
+        IDEPanel.add(whole);
 
         add(IDEPanel);
 
