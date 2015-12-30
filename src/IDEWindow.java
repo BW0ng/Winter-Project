@@ -24,7 +24,6 @@ public class IDEWindow extends JFrame {
 
     protected static int spaceBetweenComponents = 5;
     protected static int numberOfTextWindows;
-    protected static boolean isSaved = false;
     protected static ArrayList<TextEditorPanel> textEditorPanels;
     /**
      * Basic constructor used to set up the JFrame for the entire program
@@ -105,7 +104,7 @@ public class IDEWindow extends JFrame {
         FilePanel fileTree = new FilePanel(filePanel);
         filePanel.add(fileTree);
 
-        cmdPanel.setBackground(Color.BLUE);
+        cmdPanel.add(new CmdPanel(cmdPanel));
 
         TextEditorPanel temp = new TextEditorPanel(numberOfTextWindows, textEditor);
         textEditor.addTab("New File", temp);
@@ -154,9 +153,9 @@ public class IDEWindow extends JFrame {
 
         JMenu newMenu = new JMenu("New");
             JMenuItem newWindow = new JMenuItem("New Window");
-            JMenuItem textFile = new JMenuItem("Text Window");
+            JMenuItem textFile = new JMenuItem("Text File");
                 textFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-                textFile.addActionListener(new MenuActionListener("Text Window"));
+                textFile.addActionListener(new MenuActionListener("Text File"));
             JMenuItem javaFile = new JMenuItem("Java File");
             JMenuItem cFile = new JMenuItem("C File");
             JMenuItem cppFile = new JMenuItem("C++ File");
@@ -177,6 +176,11 @@ public class IDEWindow extends JFrame {
             saveFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
             saveFile.addActionListener(new MenuActionListener("Save"));
 
+        JMenuItem saveAsFile = new JMenuItem("Save As");
+        saveAsFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() | KeyEvent.SHIFT_DOWN_MASK));
+        saveAsFile.addActionListener(new MenuActionListener("Save As"));
+
+
         JMenuItem exit = new JMenuItem("Close Window");
             exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
             exit.addActionListener(new MenuActionListener("Close Window"));
@@ -188,6 +192,7 @@ public class IDEWindow extends JFrame {
         file.add(newMenu);
         file.add(openFile);
         file.add(saveFile);
+        file.add(saveAsFile);
         file.add(new JPopupMenu.Separator());
         file.add(exit);
         file.add(quit);
