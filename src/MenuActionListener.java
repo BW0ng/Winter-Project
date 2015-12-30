@@ -20,7 +20,6 @@ public class MenuActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Implement the functions when the menuItem is selected
-        // TODO Need to fix this.
 
 
         String s = e.getActionCommand();
@@ -29,8 +28,13 @@ public class MenuActionListener implements ActionListener {
 
         }
         else if (s.equals("Save")) {
+            System.out.println("Save");
             ToolbarFunctions.save(e.getSource());
 
+        }
+        else if (s.equals("Save As")){
+            System.out.println("Save As");
+            ToolbarFunctions.saveAs();
         }
         else if (s.equals("Close Window")) {
             ToolbarFunctions.close(e.getSource());
@@ -42,9 +46,9 @@ public class MenuActionListener implements ActionListener {
         else if (s.equals("New Window")) {
             ToolbarFunctions.newWindow();
         }
-        else if (s.equals("Text Window")) {
-            ToolbarFunctions.newTextWindow();
-            System.out.println("New Text Window");
+        else if (s.equals("Text File")) {
+            ToolbarFunctions.newTextFile();
+            System.out.println("New Text File");
         }
         else {
             System.out.println(s);

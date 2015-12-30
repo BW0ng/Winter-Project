@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Brandon Wong and Topher Thomas
@@ -14,6 +13,35 @@ public class ToolbarFunctions {
      */
     public static void open() {
         System.out.println("Opening File");
+
+        int tabNumber = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(tabNumber);
+
+
+        JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
+        int option = fileChooser.showOpenDialog(panel);
+
+        if(option == JFileChooser.APPROVE_OPTION) {
+            try {
+                FileReader reader = null;
+                File file = fileChooser.getSelectedFile();
+                reader = new FileReader(file);
+
+                BufferedReader in = new BufferedReader(reader);
+                StringBuilder stringBuffer = new StringBuilder();
+                String string;
+
+                while((string = in.readLine()) != null) {
+                    stringBuffer.append(string + "\n");
+                }
+                panel.addText(stringBuffer);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -22,8 +50,7 @@ public class ToolbarFunctions {
     public static void save(Object o) {
 
         // TODO Need to fix Saving function so it saves.
-        System.out.println("Saving File with Dialogue ");
-        System.out.println("O.getClass().getName: " + o.getClass().getName());
+        /*
         if(o instanceof Component) {
 
             Window w = findWindow((Component) o);
@@ -52,23 +79,51 @@ public class ToolbarFunctions {
                     ((IDEWindow) w).isSaved = true;
                 }
             }
-
         }
+        */
+        int tabNumber = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(tabNumber);
 
-       // System.out.println("Saving File with Dialogue ");
-       // System.out.println(o.getClass().getName());
-       // JFileChooser fileChooser = new JFileChooser();
-       // fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
-       // int result = fileChooser.showSaveDialog(window);
-       // if (result == JFileChooser.APPROVE_OPTION) {
-       //     try {
-       //         PrintWriter out = new PrintWriter(fileChooser.getSelectedFile());
-       //         out.write(((TextEditorPanel) (w.getFocusOwner())).getText());
-       //         out.close();
-       //     }catch(IOException e) {
-       //         e.printStackTrace();
-        //    }
-        //}
+        if(panel.getFile() == null) {
+            saveAs();
+        } else {
+            try {
+                File file = panel.getFile();
+                PrintWriter out = new PrintWriter(file);
+                out.write(panel.getText());
+                out.close();
+                IDEWindow.textEditor.setTitleAt(tabNumber, file.getName());
+                panel.setSaved(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void saveAs() {
+        int tabNumber = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(tabNumber);
+
+        JFileChooser fileChooser = new JFileChooser();
+        if(IDEWindow.textEditor.getTitleAt(tabNumber).contains("New File")) {
+            File file = new File(System.getProperty("user.dir") + "/Untitled.txt");
+            fileChooser.setSelectedFile(file);
+        } else {
+            fileChooser.setSelectedFile(panel.getFile());
+        }
+        int result = fileChooser.showSaveDialog(panel);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            try {
+                File file = fileChooser.getSelectedFile();
+                PrintWriter out = new PrintWriter(file);
+                out.write(panel.getText());
+                out.close();
+                IDEWindow.textEditor.setTitleAt(tabNumber, file.getName());
+                panel.setSaved(file);
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -78,18 +133,25 @@ public class ToolbarFunctions {
      */
     public static void close(Object o) {
         System.out.println("Closing Window");
-        if(o instanceof Component) {
-            Window w = findWindow((Component) o);
-            if(((IDEWindow) w).isSaved) {
-                // TODO Need to add it so it exits the JEditorTextPane
+
+        if(IDEWindow.textEditor.getTabCount() <= 0) {
+            if(o instanceof Component) {
+                Window w = findWindow((Component) o);
                 w.dispose();
+            }
+        } else {
+
+            int tabNumber = IDEWindow.textEditor.getSelectedIndex();
+            TextEditorPanel panel = (TextEditorPanel) IDEWindow.textEditor.getComponentAt(tabNumber);
+
+            if(panel.getSaved()) {
+                IDEWindow.textEditor.remove(tabNumber);
             } else {
                 int reply = JOptionPane.showConfirmDialog(null, "Do you want to save?", "Save", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
                 if(reply == JOptionPane.YES_OPTION) {
                     save(o);
                 } else if(reply == JOptionPane.NO_OPTION) {
-                    // TODO Need to add it so it exits the JEditorTextPane
-                    w.dispose();
+                    IDEWindow.textEditor.remove(tabNumber);
                 }
             }
         }
@@ -110,7 +172,7 @@ public class ToolbarFunctions {
         new IDEWindow("IDE " + IDE.counter);
     }
 
-    public static void newTextWindow() {
+    public static void newTextFile() {
         // TODO Need to add it so it splitPanel works with JTextEditorPane
         TextEditorPanel temp = new TextEditorPanel(IDEWindow.numberOfTextWindows,
                     IDEWindow.textEditor);
