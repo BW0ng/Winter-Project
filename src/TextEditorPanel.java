@@ -13,47 +13,61 @@ import java.io.File;
 // TODO Implement a JTextPane. Used for more advanced and multiple fonts
 
 public class TextEditorPanel extends JPanel {
-    protected static JTextPane pane;
+    protected static JTextPane pane = null;
     protected static JTabbedPane panel;
     protected static JScrollPane scrollPane;
     private boolean isSaved = false;
-    protected int number;
+    private boolean edited = false;
+    final protected int number;
     private String textSaved;
     private File file;
-    public TextEditorPanel(int number, JTabbedPane panel) {
+    public TextEditorPanel(final int number, final JTabbedPane panel) {
         this.number = number;
-        this.panel = panel;
+        TextEditorPanel.panel = panel;
         file = null;
         IDEWindow.numberOfTextWindows++;
+        final ImageIcon icon = new ImageIcon("../resources/Super-Mario-Pixel.png");
 
         setLayout(new BorderLayout());
 
         pane = new JTextPane();
         pane.setPreferredSize(panel.getPreferredSize());
         pane.getDocument().addDocumentListener(new DocumentListener() {
+            // TODO Add code to insert an icon when not saved
             @Override
             public void insertUpdate(DocumentEvent e) {
+                edited = true;
                 if(textSaved!= null && textSaved.equals(pane.getText())) {
                     isSaved = true;
+
                 } else {
+                    panel.setIconAt(number,icon);
+                    panel.repaint();
+                    System.out.println("Insert Update");
                     isSaved = false;
                 }
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
+                edited = true;
                 if(textSaved!= null && textSaved.equals(pane.getText())) {
                     isSaved = true;
                 } else {
+                    panel.setIconAt(number,icon);
+                    System.out.println("Remove Update");
                     isSaved = false;
                 }
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
+                edited = true;
                 if(textSaved!= null && textSaved.equals(pane.getText())) {
                     isSaved = true;
                 } else {
+                    panel.setIconAt(number,icon);
+                    System.out.println("Changed Update");
                     isSaved = false;
                 }
             }
@@ -102,5 +116,7 @@ public class TextEditorPanel extends JPanel {
     public boolean getSaved() {
         return isSaved;
     }
-
+    public boolean getEdited() {
+        return edited;
+    }
 }

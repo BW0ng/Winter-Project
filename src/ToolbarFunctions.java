@@ -23,7 +23,7 @@ public class ToolbarFunctions {
 
         if(option == JFileChooser.APPROVE_OPTION) {
             try {
-                FileReader reader = null;
+                FileReader reader;
                 File file = fileChooser.getSelectedFile();
                 reader = new FileReader(file);
 
@@ -32,7 +32,7 @@ public class ToolbarFunctions {
                 String string;
 
                 while((string = in.readLine()) != null) {
-                    stringBuffer.append(string + "\n");
+                    stringBuffer.append(string).append("\n");
                 }
                 panel.addText(stringBuffer);
 
@@ -129,7 +129,7 @@ public class ToolbarFunctions {
     /**
      * Close one IDE window. Uses the findWindow method
      * to find current window in focus
-     * @param o
+     * @param o The ActionEvent passed in
      */
     public static void close(Object o) {
         System.out.println("Closing Window");
@@ -137,6 +137,7 @@ public class ToolbarFunctions {
         if(IDEWindow.textEditor.getTabCount() <= 0) {
             if(o instanceof Component) {
                 Window w = findWindow((Component) o);
+                assert w != null;
                 w.dispose();
             }
         } else {
@@ -144,7 +145,9 @@ public class ToolbarFunctions {
             int tabNumber = IDEWindow.textEditor.getSelectedIndex();
             TextEditorPanel panel = (TextEditorPanel) IDEWindow.textEditor.getComponentAt(tabNumber);
 
-            if(panel.getSaved()) {
+            if(!panel.getEdited()) {
+                IDEWindow.textEditor.remove(tabNumber);
+            } else if(panel.getSaved()) {
                 IDEWindow.textEditor.remove(tabNumber);
             } else {
                 int reply = JOptionPane.showConfirmDialog(null, "Do you want to save?", "Save", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
@@ -174,10 +177,10 @@ public class ToolbarFunctions {
 
     public static void newTextFile() {
         // TODO Need to add it so it splitPanel works with JTextEditorPane
+        final ImageIcon icon = new ImageIcon("../resources/Super-Mario-Pixel.png");
         TextEditorPanel temp = new TextEditorPanel(IDEWindow.numberOfTextWindows,
                     IDEWindow.textEditor);
-        IDEWindow.textEditor.addTab("New File " + IDEWindow.numberOfTextWindows, temp);
-
+        IDEWindow.textEditor.addTab("New File " + IDEWindow.numberOfTextWindows, icon, temp);
     }
 
     /**
@@ -189,7 +192,7 @@ public class ToolbarFunctions {
 
     /**
      * Returns the current window to dispose of it
-     * @param c
+     * @param c The ActionEvent passed in from the Listener
      * @return The current window that is in focus
      */
     public static Window findWindow(Component c) {
