@@ -151,6 +151,9 @@ public class IDEWindow extends JFrame {
         menuBar.setFocusable(false);
 
         JMenu file = new JMenu("File");
+        //file.setMnemonic(KeyEvent.VK_F);
+        //Underlines 'F' int "File"
+        //Does NOT create a shortcut! must do that elsewhere
 
         JMenu newMenu = new JMenu("New");
             JMenuItem newWindow = new JMenuItem("New Window");
