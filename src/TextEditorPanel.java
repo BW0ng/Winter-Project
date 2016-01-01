@@ -54,8 +54,10 @@ public class TextEditorPanel extends JPanel {
                 if(textSaved!= null && textSaved.equals(pane.getText())) {
                     isSaved = true;
                     int number = IDEWindow.textEditor.getSelectedIndex();
+                    TextEditorPanel panel1 = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
                     IDEWindow.textEditor.remove(number);
-                    IDEWindow.textEditor.add(self, number);
+                    IDEWindow.textEditor.add(panel1.self, number);
+                    IDEWindow.textEditor.setTitleAt(number, panel1.getFile().getName());
 
                 } else {
                     panel.setIconAt(number,icon);
@@ -72,8 +74,10 @@ public class TextEditorPanel extends JPanel {
                     isSaved = true;
 
                     int number = IDEWindow.textEditor.getSelectedIndex();
+                    TextEditorPanel panel1 = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
                     IDEWindow.textEditor.remove(number);
-                    IDEWindow.textEditor.add(self, number);
+                    IDEWindow.textEditor.add(panel1.self, number);
+                    IDEWindow.textEditor.setTitleAt(number, panel1.getFile().getName());
 
                 } else {
                     panel.setIconAt(number,icon);
@@ -89,8 +93,10 @@ public class TextEditorPanel extends JPanel {
                     isSaved = true;
 
                     int number = IDEWindow.textEditor.getSelectedIndex();
+                    TextEditorPanel panel1 = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
                     IDEWindow.textEditor.remove(number);
-                    IDEWindow.textEditor.add(self, number);
+                    IDEWindow.textEditor.add(panel1.self, number);
+                    IDEWindow.textEditor.setTitleAt(number, panel1.getFile().getName());
 
                 } else {
                     panel.setIconAt(number,icon);
