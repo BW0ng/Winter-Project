@@ -16,9 +16,9 @@ import java.io.File;
 // TODO Implement a JTextPane. Used for more advanced and multiple fonts
 
 public class TextEditorPanel extends JPanel {
-    protected static JTextPane pane = null;
+    protected JTextPane pane = null;
     private JTabbedPane panel = null;
-    protected static JScrollPane scrollPane;
+    protected JScrollPane scrollPane;
     protected UndoManager undoManager;
     protected JPanel self = null;
     private boolean isSaved = false;
@@ -65,6 +65,7 @@ public class TextEditorPanel extends JPanel {
                     System.out.println("Insert Update");
                     isSaved = false;
                 }
+                System.out.printf("Tab Number in Insert: %d%n%n", number);
             }
 
             @Override
@@ -152,7 +153,7 @@ public class TextEditorPanel extends JPanel {
     }
 
     public void addText(StringBuilder string) {
-        System.out.printf("Tab Number: %d", number);
+        System.out.printf("Tab Number: %d%n%n", number);
         pane.setText(string.toString());
     }
     public boolean getSaved() {

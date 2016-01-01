@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 import static javax.swing.JSplitPane.HORIZONTAL_SPLIT;
 import static javax.swing.JSplitPane.VERTICAL_SPLIT;
@@ -24,7 +23,6 @@ public class IDEWindow extends JFrame {
 
     protected static int spaceBetweenComponents = 5;
     protected static int numberOfTextWindows;
-    protected static ArrayList<TextEditorPanel> textEditorPanels;
     /**
      * Basic constructor used to set up the JFrame for the entire program
      *
@@ -45,7 +43,6 @@ public class IDEWindow extends JFrame {
         setLocation(65 + (IDE.counter*5), 50 + (IDE.counter*5));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        textEditorPanels = new ArrayList<TextEditorPanel>();
         numberOfTextWindows = 0;
 
         // Instantiate JPanels
@@ -132,7 +129,6 @@ public class IDEWindow extends JFrame {
 
         setVisible(true);
 
-        textEditorPanels.add(temp);
 
     }
 
