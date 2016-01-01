@@ -32,6 +32,7 @@ public class ToolbarFunctions {
 
         int tabNumber = ideWindow.textEditor.getSelectedIndex();
         TextEditorPanel panel = (TextEditorPanel) ideWindow.textEditor.getComponentAt(tabNumber);
+        panel.setOpenedFile();
 
         JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
         int option = fileChooser.showOpenDialog(panel);
@@ -57,6 +58,35 @@ public class ToolbarFunctions {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void open(File file, IDEWindow ideWindow) {
+
+        System.out.println("Opening File from JTree");
+        TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
+                ideWindow.textEditor, ideWindow);
+        ideWindow.textEditor.add(file.getName(), temp);
+        temp.setOpenedFile();
+
+        try {
+            FileReader reader;
+            reader = new FileReader(file);
+
+            BufferedReader in = new BufferedReader(reader);
+            StringBuilder stringBuffer = new StringBuilder();
+            String string;
+
+            while ((string = in.readLine()) != null) {
+                stringBuffer.append(string).append("\n");
+            }
+            temp.addText(stringBuffer);
+            temp.setSaved(file);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

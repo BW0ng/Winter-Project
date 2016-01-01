@@ -25,6 +25,7 @@ public class TextEditorPanel extends JPanel {
     private JTabbedPane panel = null;
     private boolean isSaved = false;
     private boolean edited = false;
+    private boolean openedFile = false;
     private String textSaved;
     private File file;
     private IDEWindow ideWindow;
@@ -57,18 +58,16 @@ public class TextEditorPanel extends JPanel {
             public void insertUpdate(DocumentEvent e) {
 
                 edited = true;
-                if (textSaved != null && textSaved.equals(pane.getText())) {
+                if (openedFile || (textSaved != null && textSaved.equals(pane.getText()))) {
                     isSaved = true;
-
-                    removeIcon();
+                    if(ideWindow.textEditor.getIconAt(ideWindow.textEditor.getSelectedIndex()) != null) {
+                        removeIcon();
+                    }
 
                 } else {
                     panel.setIconAt(number, icon);
-                    panel.repaint();
-                    System.out.println("Insert Update");
                     isSaved = false;
                 }
-                System.out.printf("Tab Number in Insert: %d%n%n", number);
             }
 
             @Override
@@ -77,12 +76,12 @@ public class TextEditorPanel extends JPanel {
                 edited = true;
                 if (textSaved != null && textSaved.equals(pane.getText())) {
                     isSaved = true;
-
-                    removeIcon();
+                    if(ideWindow.textEditor.getIconAt(ideWindow.textEditor.getSelectedIndex()) != null) {
+                        removeIcon();
+                    }
 
                 } else {
                     panel.setIconAt(number, icon);
-                    System.out.println("Remove Update");
                     isSaved = false;
                 }
             }
@@ -93,12 +92,12 @@ public class TextEditorPanel extends JPanel {
                 edited = true;
                 if (textSaved != null && textSaved.equals(pane.getText())) {
                     isSaved = true;
-
-                    removeIcon();
+                    if(ideWindow.textEditor.getIconAt(ideWindow.textEditor.getSelectedIndex()) != null) {
+                        removeIcon();
+                    }
 
                 } else {
                     panel.setIconAt(number, icon);
-                    System.out.println("Changed Update");
                     isSaved = false;
                 }
             }
@@ -126,11 +125,6 @@ public class TextEditorPanel extends JPanel {
         self = this;
 
     }
-
-    public TextEditorPanel(File file, IDEWindow ideWindow) {
-        TextEditorPanel panel = new TextEditorPanel(ideWindow.numberOfTextWindows, ideWindow.textEditor, ideWindow);
-        panel.open(file);
-    }
     public String getText() {
 
         return pane.getText();
@@ -154,8 +148,6 @@ public class TextEditorPanel extends JPanel {
     }
 
     public void addText(StringBuilder string) {
-
-        System.out.printf("Tab Number: %d%n%n", number);
         pane.setText(string.toString());
     }
 
@@ -169,7 +161,9 @@ public class TextEditorPanel extends JPanel {
         isSaved = true;
         textSaved = pane.getText();
         this.file = file;
-        removeIcon();
+        if(ideWindow.textEditor.getIconAt(ideWindow.textEditor.getSelectedIndex()) != null) {
+            removeIcon();
+        }
     }
 
     public boolean getEdited() {
@@ -183,27 +177,7 @@ public class TextEditorPanel extends JPanel {
         ideWindow.textEditor.add(panel.self, number);
         ideWindow.textEditor.setTitleAt(number, panel.getFile().getName());
     }
-    public void open(File file) {
-
-        System.out.println("Opening File");
-            try {
-                FileReader reader;
-                reader = new FileReader(file);
-
-                BufferedReader in = new BufferedReader(reader);
-                StringBuilder stringBuffer = new StringBuilder();
-                String string;
-
-                while ((string = in.readLine()) != null) {
-                    stringBuffer.append(string).append("\n");
-                }
-                addText(stringBuffer);
-                setSaved(file);
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public void setOpenedFile() {
+        openedFile = true;
+    }
 }

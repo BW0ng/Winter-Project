@@ -59,9 +59,6 @@ public class IDEWindow extends JFrame {
         IDEPanel.addComponentListener(new ComponentListener() {
             @Override
             public void componentResized(ComponentEvent e) {
-
-                System.out.println("Component Resized");
-                System.out.printf("Height: %d, Width: %d\n\n", getHeight(), getWidth());
                 updatePanel(getSize());
             }
 
@@ -100,7 +97,7 @@ public class IDEWindow extends JFrame {
 
         buttonPanel.setBackground(Color.BLACK);
 
-        FilePanel fileTree = new FilePanel(filePanel, ideWindow);
+        FilePanel fileTree = new FilePanel(filePanel, this);
         filePanel.add(fileTree);
 
         cmdPanel.add(new CmdPanel(cmdPanel));
