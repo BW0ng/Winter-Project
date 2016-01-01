@@ -1,3 +1,18 @@
+/*
+int currentTab = IDEWindow.textEditor.getSelectedIndex();
+TextEditorPanel temp = (TextEditorPanel) IDEWindow.textEditor.getComponentAt(currentTab);
+String text = temp.getText();
+int counter=1;
+for(int i=0;i<text.length();i++) {
+    if(text.charAt(i)==('\n')) {
+        counter++;
+    }
+}
+System.out.println(counter);
+*/
+
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -17,13 +32,12 @@ public class ToolbarFunctions {
         int tabNumber = IDEWindow.textEditor.getSelectedIndex();
         TextEditorPanel panel = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(tabNumber);
 
-
         JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
         int option = fileChooser.showOpenDialog(panel);
 
         if(option == JFileChooser.APPROVE_OPTION) {
             try {
-                FileReader reader = null;
+                FileReader reader;
                 File file = fileChooser.getSelectedFile();
                 reader = new FileReader(file);
 
@@ -32,9 +46,10 @@ public class ToolbarFunctions {
                 String string;
 
                 while((string = in.readLine()) != null) {
-                    stringBuffer.append(string + "\n");
+                    stringBuffer.append(string).append("\n");
                 }
                 panel.addText(stringBuffer);
+                panel.setSaved(file);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -98,6 +113,12 @@ public class ToolbarFunctions {
                 e.printStackTrace();
             }
         }
+
+        int number = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel1 = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
+        IDEWindow.textEditor.remove(number);
+        IDEWindow.textEditor.add(panel1.self, number);
+        IDEWindow.textEditor.setTitleAt(number, panel1.getFile().getName());
     }
 
     public static void saveAs() {
@@ -129,7 +150,7 @@ public class ToolbarFunctions {
     /**
      * Close one IDE window. Uses the findWindow method
      * to find current window in focus
-     * @param o
+     * @param o The ActionEvent passed in
      */
     public static void close(Object o) {
         System.out.println("Closing Window");
@@ -137,6 +158,7 @@ public class ToolbarFunctions {
         if(IDEWindow.textEditor.getTabCount() <= 0) {
             if(o instanceof Component) {
                 Window w = findWindow((Component) o);
+                assert w != null;
                 w.dispose();
             }
         } else {
@@ -144,7 +166,9 @@ public class ToolbarFunctions {
             int tabNumber = IDEWindow.textEditor.getSelectedIndex();
             TextEditorPanel panel = (TextEditorPanel) IDEWindow.textEditor.getComponentAt(tabNumber);
 
-            if(panel.getSaved()) {
+            if(!panel.getEdited()) {
+                IDEWindow.textEditor.remove(tabNumber);
+            } else if(panel.getSaved()) {
                 IDEWindow.textEditor.remove(tabNumber);
             } else {
                 int reply = JOptionPane.showConfirmDialog(null, "Do you want to save?", "Save", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
@@ -177,7 +201,24 @@ public class ToolbarFunctions {
         TextEditorPanel temp = new TextEditorPanel(IDEWindow.numberOfTextWindows,
                     IDEWindow.textEditor);
         IDEWindow.textEditor.addTab("New File " + IDEWindow.numberOfTextWindows, temp);
+    }
 
+    public static void undo() {
+        int number = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
+
+        if(panel.undoManager.canUndo()) {
+            panel.undoManager.undo();
+        }
+    }
+
+    public static void redo() {
+        int number = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
+
+        if(panel.undoManager.canRedo()) {
+            panel.undoManager.redo();
+        }
     }
 
     /**
@@ -189,7 +230,7 @@ public class ToolbarFunctions {
 
     /**
      * Returns the current window to dispose of it
-     * @param c
+     * @param c The ActionEvent passed in from the Listener
      * @return The current window that is in focus
      */
     public static Window findWindow(Component c) {

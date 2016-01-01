@@ -25,7 +25,13 @@ public class SplashScreen extends JWindow {
             JPanel panel = new JPanel();
             panel.setLayout(new BorderLayout());
 
-            JLabel splashImage = new JLabel(new ImageIcon("../resources/SplashScreen5.jpg"));
+            JLabel splashImage;
+
+            if(System.getProperty("user.dir").contains("/src")) {
+                splashImage = new JLabel(new ImageIcon("../resources/SplashScreen5.jpg"));
+            } else {
+                splashImage = new JLabel(new ImageIcon("resources/SplashScreen5.jpg"));
+            }
             panel.add(splashImage);
 
             progressBar = new JProgressBar();
