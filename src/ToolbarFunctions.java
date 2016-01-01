@@ -145,6 +145,11 @@ public class ToolbarFunctions {
                 e.printStackTrace();
             }
         }
+        int number = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel1 = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
+        IDEWindow.textEditor.remove(number);
+        IDEWindow.textEditor.add(panel1.self, number);
+        IDEWindow.textEditor.setTitleAt(number, panel1.getFile().getName());
     }
 
     /**
