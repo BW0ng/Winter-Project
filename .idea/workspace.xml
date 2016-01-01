@@ -2,11 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e70320a-c45c-48c6-9e16-7964264b5aff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hello.java" afterPath="$PROJECT_DIR$/Hello.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FilePanel.java" afterPath="$PROJECT_DIR$/src/FilePanel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AbstractTerminalFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/CmdPanel.class" afterPath="$PROJECT_DIR$/classes/CmdPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FilePanel$1.class" afterPath="$PROJECT_DIR$/classes/FilePanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FilePanel.class" afterPath="$PROJECT_DIR$/classes/FilePanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/IDE.class" afterPath="$PROJECT_DIR$/classes/IDE.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/IDEWindow$1.class" afterPath="$PROJECT_DIR$/classes/IDEWindow$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/IDEWindow.class" afterPath="$PROJECT_DIR$/classes/IDEWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/MenuActionListener.class" afterPath="$PROJECT_DIR$/classes/MenuActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen$1.class" afterPath="$PROJECT_DIR$/classes/SplashScreen$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen$2.class" afterPath="$PROJECT_DIR$/classes/SplashScreen$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen.class" afterPath="$PROJECT_DIR$/classes/SplashScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/TextEditorFilter.class" afterPath="$PROJECT_DIR$/classes/TextEditorFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/TextEditorPanel$1.class" afterPath="$PROJECT_DIR$/classes/TextEditorPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/TextEditorPanel.class" afterPath="$PROJECT_DIR$/classes/TextEditorPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/ToolbarFunctions.class" afterPath="$PROJECT_DIR$/classes/ToolbarFunctions.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Winter-Project.iml" afterPath="$PROJECT_DIR$/Winter-Project.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CmdPanel.java" afterPath="$PROJECT_DIR$/src/CmdPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/IDEWindow.java" afterPath="$PROJECT_DIR$/src/IDEWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TextEditorPanel.java" afterPath="$PROJECT_DIR$/src/TextEditorPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ToolbarFunctions.java" afterPath="$PROJECT_DIR$/src/ToolbarFunctions.java" />
     </list>
     <ignored path="Winter-Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +42,65 @@
     <favorites_list name="Winter-Project" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="IDE.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IDE.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IDEWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IDEWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+              <folding>
+                <element signature="e#1727#1728#0" expanded="true" />
+                <element signature="e#1781#1782#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CmdPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/CmdPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.71734476">
+              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+              <folding>
+                <element signature="docComment;class#CmdPanel#0" expanded="false" />
+                <element signature="e#930#1149#0" expanded="true" />
+                <element signature="e#1148#1149#0" expanded="true" />
+                <element signature="method#openSession#0;class#CmdPanel#0" expanded="false" />
+                <element signature="method#openSession#1;class#CmdPanel#0" expanded="false" />
+                <element signature="method#createTtyConnector#0;class#CmdPanel#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractTerminalFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AbstractTerminalFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="100" column="1" selection-start-line="36" selection-start-column="4" selection-end-line="100" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2047#2266#0" expanded="true" />
+                <element signature="e#2265#2266#0" expanded="true" />
+                <element signature="e#2670#3123#0" expanded="true" />
+                <element signature="e#3122#3123#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,15 +129,18 @@
         <option value="/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home/src.zip!/java/awt/Container.java" />
         <option value="$PROJECT_DIR$/src/TextEditorFilter.java" />
         <option value="$PROJECT_DIR$/src/TabSizeEditorKit.java" />
-        <option value="$PROJECT_DIR$/src/CmdPanel.java" />
         <option value="$PROJECT_DIR$/src/SplashScreen.java" />
-        <option value="$PROJECT_DIR$/src/IDE.java" />
         <option value="$PROJECT_DIR$/src/MenuActionListener.java" />
         <option value="/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home/src.zip!/javax/swing/JTree.java" />
         <option value="$PROJECT_DIR$/src/FilePanel.java" />
-        <option value="$PROJECT_DIR$/src/IDEWindow.java" />
         <option value="$PROJECT_DIR$/src/TextEditorPanel.java" />
         <option value="$PROJECT_DIR$/src/ToolbarFunctions.java" />
+        <option value="$PROJECT_DIR$/src/TerminalFrame.java" />
+        <option value="$PROJECT_DIR$/src/IDE.java" />
+        <option value="$PROJECT_DIR$/src/Terminal.java" />
+        <option value="$PROJECT_DIR$/src/AbstractTerminalFrame.java" />
+        <option value="$PROJECT_DIR$/src/IDEWindow.java" />
+        <option value="$PROJECT_DIR$/src/CmdPanel.java" />
       </list>
     </option>
   </component>
@@ -82,9 +157,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="529" />
+    <option name="x" value="383" />
     <option name="y" value="23" />
-    <option name="width" value="751" />
+    <option name="width" value="897" />
     <option name="height" value="773" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -653,12 +728,12 @@
       <workItem from="1451448720076" duration="1799000" />
       <workItem from="1451452719768" duration="3301000" />
       <workItem from="1451530816369" duration="640000" />
-      <workItem from="1451603000655" duration="12225000" />
+      <workItem from="1451603000655" duration="19279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65828000" />
+    <option name="totallyTimeSpent" value="72882000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -670,21 +745,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="529" y="23" width="751" height="773" extended-state="0" />
-    <editor active="false" />
+    <frame x="383" y="23" width="897" height="773" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32698414" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32671756" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24427481" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24427481" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32519084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884097" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28067702" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23274854" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -766,38 +841,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TextEditorPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="docComment;class#TextEditorPanel#0" expanded="false" />
-            <element signature="e#3423#3616#0" expanded="true" />
-            <element signature="e#3615#3616#0" expanded="true" />
-            <element signature="e#4453#4454#0" expanded="true" />
-            <element signature="e#4500#4501#0" expanded="true" />
-            <element signature="e#5293#5294#0" expanded="true" />
-            <element signature="e#5326#5327#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MenuActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IDE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -811,9 +854,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
           <folding>
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1762#1763#0" expanded="true" />
-            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -862,9 +904,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1762#1763#0" expanded="true" />
-            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -926,9 +967,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1762#1763#0" expanded="true" />
-            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -998,9 +1038,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
           <folding>
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1762#1763#0" expanded="true" />
-            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1045,9 +1084,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1762#1763#0" expanded="true" />
-            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1088,9 +1126,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1762#1763#0" expanded="true" />
-            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1150,14 +1187,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IDE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MenuActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1171,28 +1200,6 @@
         <state vertical-scroll-proportion="0.4282655">
           <caret line="2918" column="0" selection-start-line="2918" selection-start-column="0" selection-end-line="2918" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CmdPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11949685">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#CmdPanel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IDEWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding>
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1762#1763#0" expanded="true" />
-            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1261,6 +1268,63 @@
         <state vertical-scroll-proportion="0.1738437">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jediterm-pty-2.0.jar!/com/jediterm/terminal/RequestOrigin.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IDE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AbstractTerminalFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="1" selection-start-line="36" selection-start-column="4" selection-end-line="100" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2047#2266#0" expanded="true" />
+            <element signature="e#2265#2266#0" expanded="true" />
+            <element signature="e#2670#3123#0" expanded="true" />
+            <element signature="e#3122#3123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IDEWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <folding>
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CmdPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71734476">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;class#CmdPanel#0" expanded="false" />
+            <element signature="e#930#1149#0" expanded="true" />
+            <element signature="e#1148#1149#0" expanded="true" />
+            <element signature="method#openSession#0;class#CmdPanel#0" expanded="false" />
+            <element signature="method#openSession#1;class#CmdPanel#0" expanded="false" />
+            <element signature="method#createTtyConnector#0;class#CmdPanel#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

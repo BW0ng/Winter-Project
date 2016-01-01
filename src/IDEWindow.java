@@ -19,6 +19,8 @@ public class IDEWindow extends JFrame {
     protected JTabbedPane textEditor;
     protected int spaceBetweenComponents = 5;
     protected int numberOfTextWindows;
+    protected int height = 0;
+    protected int width = 0;
     JPanel cmdPanel;
     JPanel filePanel;
     JPanel buttonPanel;
@@ -29,9 +31,6 @@ public class IDEWindow extends JFrame {
      * @param name Name of the IDE Window
      */
     public IDEWindow(String name) {
-
-        int width;
-        int height;
 
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
@@ -100,7 +99,7 @@ public class IDEWindow extends JFrame {
         FilePanel fileTree = new FilePanel(filePanel, this);
         filePanel.add(fileTree);
 
-        cmdPanel.add(new CmdPanel(cmdPanel));
+        cmdPanel.add(new CmdPanel(cmdPanel, ideWindow));
 
         TextEditorPanel temp = new TextEditorPanel(numberOfTextWindows, textEditor, this);
         textEditor.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -260,6 +259,10 @@ public class IDEWindow extends JFrame {
         cmdPanel.setPreferredSize(new Dimension(cmdPanelWidth, cmdPanelHeight));
 
         repaint();
+
+        System.out.printf("Height: %d, Width: %d in cmdPanel%n%n",
+                cmdPanelHeight, cmdPanelWidth);
+
 
     }
 }
