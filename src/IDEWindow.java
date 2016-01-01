@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 
 import static javax.swing.JSplitPane.HORIZONTAL_SPLIT;
 import static javax.swing.JSplitPane.VERTICAL_SPLIT;
-import static javax.swing.SpringLayout.*;
 
 /**
  * Brandon Wong and Topher Thomas
@@ -77,6 +76,7 @@ public class IDEWindow extends JFrame {
             }
         });
 
+        /*
         // Layout for Button Panel
         layout.putConstraint(NORTH, buttonPanel, 5, NORTH, IDEPanel);
         layout.putConstraint(WEST, buttonPanel, 5, WEST, IDEPanel);
@@ -92,6 +92,7 @@ public class IDEWindow extends JFrame {
         // Layout for cmdPanel
         layout.putConstraint(NORTH, cmdPanel, 5, SOUTH, filePanel);
         layout.putConstraint(WEST, cmdPanel, 5, WEST, IDEPanel);
+        */
 
 
         buttonPanel.setBackground(Color.BLACK);
@@ -111,9 +112,12 @@ public class IDEWindow extends JFrame {
         JSplitPane top = new JSplitPane(VERTICAL_SPLIT, buttonPanel, middle);
         JSplitPane whole = new JSplitPane(VERTICAL_SPLIT, top, cmdPanel);
 
+        layout.putConstraint(SpringLayout.WEST, whole, 2, SpringLayout.WEST, IDEPanel);
+        layout.putConstraint(SpringLayout.EAST, whole, -1, SpringLayout.EAST, IDEPanel);
+
         middle.setOneTouchExpandable(true);
         whole.setOneTouchExpandable(true);
-        middle.setResizeWeight(0.5);
+        middle.setResizeWeight(0.20);
         whole.setResizeWeight(0.5);
         top.setDividerSize(0);
 
