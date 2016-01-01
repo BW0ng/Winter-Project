@@ -2,8 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e70320a-c45c-48c6-9e16-7964264b5aff" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SplashScreen.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/CmdPanel.class" afterPath="$PROJECT_DIR$/classes/CmdPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FilePanel$1.class" afterPath="$PROJECT_DIR$/classes/FilePanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/FilePanel.class" afterPath="$PROJECT_DIR$/classes/FilePanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/IDE.class" afterPath="$PROJECT_DIR$/classes/IDE.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/IDEWindow$1.class" afterPath="$PROJECT_DIR$/classes/IDEWindow$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/IDEWindow.class" afterPath="$PROJECT_DIR$/classes/IDEWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/MenuActionListener.class" afterPath="$PROJECT_DIR$/classes/MenuActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen$1.class" afterPath="$PROJECT_DIR$/classes/SplashScreen$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen$2.class" afterPath="$PROJECT_DIR$/classes/SplashScreen$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SplashScreen.class" afterPath="$PROJECT_DIR$/classes/SplashScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/TextEditorFilter.class" afterPath="$PROJECT_DIR$/classes/TextEditorFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hello.java" afterPath="$PROJECT_DIR$/Hello.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OtherCode/OrangeCode.java" afterPath="$PROJECT_DIR$/OtherCode/OrangeCode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Untitled.txt" afterPath="$PROJECT_DIR$/Untitled.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CmdPanel.java" afterPath="$PROJECT_DIR$/src/CmdPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FilePanel.java" afterPath="$PROJECT_DIR$/src/FilePanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/IDE.java" afterPath="$PROJECT_DIR$/src/IDE.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/IDEWindow.java" afterPath="$PROJECT_DIR$/src/IDEWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MenuActionListener.java" afterPath="$PROJECT_DIR$/src/MenuActionListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SplashScreen.java" afterPath="$PROJECT_DIR$/src/SplashScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TextEditorFilter.java" afterPath="$PROJECT_DIR$/src/TextEditorFilter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TextEditorPanel.java" afterPath="$PROJECT_DIR$/src/TextEditorPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ToolbarFunctions.java" afterPath="$PROJECT_DIR$/src/ToolbarFunctions.java" />
     </list>
     <ignored path="Winter-Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -20,6 +43,28 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="CmdPanel.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/CmdPanel.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.11949685">
+                    <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+                    <folding>
+                      <element signature="docComment;class#CmdPanel#0" expanded="false" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Winter-Project" />
@@ -30,11 +75,8 @@
         <entry file="file://$PROJECT_DIR$/src/IDE.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-              <folding>
-                <element signature="e#230#231#0" expanded="true" />
-                <element signature="e#264#265#0" expanded="true" />
-              </folding>
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,9 +85,10 @@
         <entry file="file://$PROJECT_DIR$/src/IDEWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+              <caret line="102" column="63" selection-start-line="102" selection-start-column="63" selection-end-line="102" selection-end-column="63" />
               <folding>
-                <element signature="class#1577:2183" expanded="false" />
+                <element signature="class#1605:2212" expanded="false" />
+                <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -54,34 +97,49 @@
       <file leaf-file-name="ToolbarFunctions.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ToolbarFunctions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
+            <state vertical-scroll-proportion="-12.407408">
+              <caret line="59" column="9" selection-start-line="29" selection-start-column="0" selection-end-line="59" selection-end-column="9" />
               <folding>
-                <element signature="e#0#8619#0" expanded="true" />
+                <element signature="e#0#8928#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="method#open#0;class#ToolbarFunctions#0" expanded="false" />
                 <element signature="docComment;method#save#0;class#ToolbarFunctions#0" expanded="false" />
-                <element signature="method#saveAs#0;class#ToolbarFunctions#0" expanded="false" />
+                <element signature="docComment;method#saveAs#0;class#ToolbarFunctions#0" expanded="false" />
                 <element signature="docComment;method#close#0;class#ToolbarFunctions#0" expanded="false" />
                 <element signature="method#close#0;class#ToolbarFunctions#0" expanded="false" />
+                <element signature="docComment;method#quit#0;class#ToolbarFunctions#0" expanded="false" />
+                <element signature="method#quit#0;class#ToolbarFunctions#0" expanded="false" />
                 <element signature="docComment;method#newWindow#0;class#ToolbarFunctions#0" expanded="false" />
                 <element signature="method#newWindow#0;class#ToolbarFunctions#0" expanded="false" />
-                <element signature="method#undo#0;class#ToolbarFunctions#0" expanded="false" />
-                <element signature="method#redo#0;class#ToolbarFunctions#0" expanded="false" />
+                <element signature="docComment;method#newTextFile#0;class#ToolbarFunctions#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextEditorPanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FilePanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.64668095">
+              <caret line="35" column="61" selection-start-line="35" selection-start-column="61" selection-end-line="35" selection-end-column="61" />
+              <folding>
+                <element signature="e#782#1153#0" expanded="true" />
+                <element signature="e#1152#1153#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TextEditorPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TextEditorPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4817987">
-              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
               <folding>
                 <element signature="docComment;class#TextEditorPanel#0" expanded="false" />
-                <element signature="e#4215#4407#0" expanded="true" />
-                <element signature="e#4406#4407#0" expanded="true" />
+                <element signature="e#3258#3451#0" expanded="true" />
+                <element signature="e#3450#3451#0" expanded="true" />
+                <element signature="method#removeIcon#0;class#TextEditorPanel#0" expanded="false" />
+                <element signature="method#open#0;class#TextEditorPanel#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -117,13 +175,13 @@
         <option value="$PROJECT_DIR$/src/TextEditorFilter.java" />
         <option value="$PROJECT_DIR$/src/TabSizeEditorKit.java" />
         <option value="$PROJECT_DIR$/src/CmdPanel.java" />
-        <option value="$PROJECT_DIR$/src/FilePanel.java" />
-        <option value="$PROJECT_DIR$/src/IDE.java" />
         <option value="$PROJECT_DIR$/src/SplashScreen.java" />
+        <option value="$PROJECT_DIR$/src/IDE.java" />
         <option value="$PROJECT_DIR$/src/MenuActionListener.java" />
         <option value="$PROJECT_DIR$/src/ToolbarFunctions.java" />
         <option value="$PROJECT_DIR$/src/IDEWindow.java" />
         <option value="$PROJECT_DIR$/src/TextEditorPanel.java" />
+        <option value="$PROJECT_DIR$/src/FilePanel.java" />
       </list>
     </option>
   </component>
@@ -140,9 +198,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="346" />
+    <option name="x" value="261" />
     <option name="y" value="23" />
-    <option name="width" value="934" />
+    <option name="width" value="1019" />
     <option name="height" value="773" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -711,12 +769,12 @@
       <workItem from="1451448720076" duration="1799000" />
       <workItem from="1451452719768" duration="3301000" />
       <workItem from="1451530816369" duration="640000" />
-      <workItem from="1451603000655" duration="5634000" />
+      <workItem from="1451603000655" duration="8175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59237000" />
+    <option name="totallyTimeSpent" value="61778000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -728,7 +786,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="346" y="23" width="934" height="773" extended-state="0" />
+    <frame x="261" y="23" width="1019" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -742,8 +800,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32519084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884097" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18946189" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22824974" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -754,7 +813,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -810,16 +868,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/IDEWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="class#1577:2183" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -834,8 +882,10 @@
           <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
           <folding>
             <element signature="docComment;class#TextEditorPanel#0" expanded="false" />
-            <element signature="e#4215#4407#0" expanded="true" />
-            <element signature="e#4406#4407#0" expanded="true" />
+            <element signature="e#3258#3451#0" expanded="true" />
+            <element signature="e#3450#3451#0" expanded="true" />
+            <element signature="method#removeIcon#0;class#TextEditorPanel#0" expanded="false" />
+            <element signature="method#open#0;class#TextEditorPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -852,10 +902,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding>
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -864,7 +911,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
           <folding>
-            <element signature="class#1577:2183" expanded="false" />
+            <element signature="class#1605:2212" expanded="false" />
+            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -883,8 +931,10 @@
           <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
           <folding>
             <element signature="docComment;class#TextEditorPanel#0" expanded="false" />
-            <element signature="e#4215#4407#0" expanded="true" />
-            <element signature="e#4406#4407#0" expanded="true" />
+            <element signature="e#3258#3451#0" expanded="true" />
+            <element signature="e#3450#3451#0" expanded="true" />
+            <element signature="method#removeIcon#0;class#TextEditorPanel#0" expanded="false" />
+            <element signature="method#open#0;class#TextEditorPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -900,10 +950,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding>
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -912,7 +959,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1577:2183" expanded="false" />
+            <element signature="class#1605:2212" expanded="false" />
+            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -931,8 +979,10 @@
           <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
           <folding>
             <element signature="docComment;class#TextEditorPanel#0" expanded="false" />
-            <element signature="e#4215#4407#0" expanded="true" />
-            <element signature="e#4406#4407#0" expanded="true" />
+            <element signature="e#3258#3451#0" expanded="true" />
+            <element signature="e#3450#3451#0" expanded="true" />
+            <element signature="method#removeIcon#0;class#TextEditorPanel#0" expanded="false" />
+            <element signature="method#open#0;class#TextEditorPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -961,10 +1011,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding>
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -973,7 +1020,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1577:2183" expanded="false" />
+            <element signature="class#1605:2212" expanded="false" />
+            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -992,8 +1040,10 @@
           <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
           <folding>
             <element signature="docComment;class#TextEditorPanel#0" expanded="false" />
-            <element signature="e#4215#4407#0" expanded="true" />
-            <element signature="e#4406#4407#0" expanded="true" />
+            <element signature="e#3258#3451#0" expanded="true" />
+            <element signature="e#3450#3451#0" expanded="true" />
+            <element signature="method#removeIcon#0;class#TextEditorPanel#0" expanded="false" />
+            <element signature="method#open#0;class#TextEditorPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1022,10 +1072,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1033,10 +1080,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding>
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,7 +1089,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
           <folding>
-            <element signature="class#1577:2183" expanded="false" />
+            <element signature="class#1605:2212" expanded="false" />
+            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1081,10 +1126,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-          <folding>
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1093,7 +1135,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
-            <element signature="class#1577:2183" expanded="false" />
+            <element signature="class#1605:2212" expanded="false" />
+            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1125,10 +1168,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1137,7 +1177,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
-            <element signature="class#1577:2183" expanded="false" />
+            <element signature="class#1605:2212" expanded="false" />
+            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1182,13 +1223,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TextEditorFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4784689">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hello.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1196,18 +1230,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64593303">
-          <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CmdPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5263158">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.11949685">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#CmdPanel#0" expanded="false" />
           </folding>
@@ -1217,18 +1243,15 @@
     <entry file="file://$PROJECT_DIR$/src/SplashScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="e#461#462#0" expanded="false" />
-            <element signature="e#497#498#0" expanded="false" />
-          </folding>
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MenuActionListener.java">
+    <entry file="file://$PROJECT_DIR$/src/TextEditorFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6124197">
-          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.47965738">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1236,52 +1259,71 @@
     <entry file="file://$PROJECT_DIR$/src/IDE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding>
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MenuActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IDEWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <caret line="102" column="63" selection-start-line="102" selection-start-column="63" selection-end-line="102" selection-end-column="63" />
           <folding>
-            <element signature="class#1577:2183" expanded="false" />
+            <element signature="class#1605:2212" expanded="false" />
+            <element signature="method#updatePanel#0;class#IDEWindow#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ToolbarFunctions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
+        <state vertical-scroll-proportion="-12.407408">
+          <caret line="59" column="9" selection-start-line="29" selection-start-column="0" selection-end-line="59" selection-end-column="9" />
           <folding>
-            <element signature="e#0#8619#0" expanded="true" />
+            <element signature="e#0#8928#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#open#0;class#ToolbarFunctions#0" expanded="false" />
             <element signature="docComment;method#save#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#saveAs#0;class#ToolbarFunctions#0" expanded="false" />
+            <element signature="docComment;method#saveAs#0;class#ToolbarFunctions#0" expanded="false" />
             <element signature="docComment;method#close#0;class#ToolbarFunctions#0" expanded="false" />
             <element signature="method#close#0;class#ToolbarFunctions#0" expanded="false" />
+            <element signature="docComment;method#quit#0;class#ToolbarFunctions#0" expanded="false" />
+            <element signature="method#quit#0;class#ToolbarFunctions#0" expanded="false" />
             <element signature="docComment;method#newWindow#0;class#ToolbarFunctions#0" expanded="false" />
             <element signature="method#newWindow#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#undo#0;class#ToolbarFunctions#0" expanded="false" />
-            <element signature="method#redo#0;class#ToolbarFunctions#0" expanded="false" />
+            <element signature="docComment;method#newTextFile#0;class#ToolbarFunctions#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TextEditorPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4817987">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
           <folding>
             <element signature="docComment;class#TextEditorPanel#0" expanded="false" />
-            <element signature="e#4215#4407#0" expanded="true" />
-            <element signature="e#4406#4407#0" expanded="true" />
+            <element signature="e#3258#3451#0" expanded="true" />
+            <element signature="e#3450#3451#0" expanded="true" />
+            <element signature="method#removeIcon#0;class#TextEditorPanel#0" expanded="false" />
+            <element signature="method#open#0;class#TextEditorPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FilePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64668095">
+          <caret line="35" column="61" selection-start-line="35" selection-start-column="61" selection-end-line="35" selection-end-column="61" />
+          <folding>
+            <element signature="e#782#1153#0" expanded="true" />
+            <element signature="e#1152#1153#0" expanded="true" />
           </folding>
         </state>
       </provider>

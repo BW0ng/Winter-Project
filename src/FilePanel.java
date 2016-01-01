@@ -13,12 +13,14 @@ import java.util.Vector;
  */
 
 public class FilePanel extends JPanel {
+
     protected JPanel pane;
 
     /**
      * Construct a FileTree
      */
-    public FilePanel(JPanel panel) {
+    public FilePanel(JPanel panel, final IDEWindow ideWindow) {
+
         pane = panel;
         setLayout(new BorderLayout());
         // Make a tree list with all the nodes, and make it a JTree
@@ -31,6 +33,7 @@ public class FilePanel extends JPanel {
                 DefaultMutableTreeNode node = (DefaultMutableTreeNode) e
                         .getPath().getLastPathComponent();
                 System.out.println("You selected " + node);
+                ideWindow.textEditor.add(new TextEditorPanel())
             }
         });
 
@@ -86,8 +89,10 @@ public class FilePanel extends JPanel {
     }
 
     public Dimension getMaximumSize() {
+
         return new Dimension(250, 700);
     }
+
     public Dimension getPreferredSize() {
 
         int height = pane.getSize().height - 5;

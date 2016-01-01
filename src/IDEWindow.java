@@ -15,32 +15,33 @@ import static javax.swing.SpringLayout.*;
 
 public class IDEWindow extends JFrame {
 
+    protected IDEWindow ideWindow;
+    protected JTabbedPane textEditor;
+    protected int spaceBetweenComponents = 5;
+    protected int numberOfTextWindows;
     JPanel cmdPanel;
-    protected static JTabbedPane textEditor;
     JPanel filePanel;
     JPanel buttonPanel;
 
-
-    protected static int spaceBetweenComponents = 5;
-    protected static int numberOfTextWindows;
     /**
      * Basic constructor used to set up the JFrame for the entire program
      *
      * @param name Name of the IDE Window
      */
     public IDEWindow(String name) {
+
         int width;
         int height;
 
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
 
-        width = (int)(7*screenSize.getWidth()/8);
-        height = (int)(7*screenSize.getHeight()/8);
+        width = (int) (7 * screenSize.getWidth() / 8);
+        height = (int) (7 * screenSize.getHeight() / 8);
 
         setTitle(name);
         setSize(width, height);
-        setLocation(65 + (IDE.counter*5), 50 + (IDE.counter*5));
+        setLocation(65 + (IDE.counter * 5), 50 + (IDE.counter * 5));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         numberOfTextWindows = 0;
@@ -58,6 +59,7 @@ public class IDEWindow extends JFrame {
         IDEPanel.addComponentListener(new ComponentListener() {
             @Override
             public void componentResized(ComponentEvent e) {
+
                 System.out.println("Component Resized");
                 System.out.printf("Height: %d, Width: %d\n\n", getHeight(), getWidth());
                 updatePanel(getSize());
@@ -98,12 +100,12 @@ public class IDEWindow extends JFrame {
 
         buttonPanel.setBackground(Color.BLACK);
 
-        FilePanel fileTree = new FilePanel(filePanel);
+        FilePanel fileTree = new FilePanel(filePanel, ideWindow);
         filePanel.add(fileTree);
 
         cmdPanel.add(new CmdPanel(cmdPanel));
 
-        TextEditorPanel temp = new TextEditorPanel(numberOfTextWindows, textEditor);
+        TextEditorPanel temp = new TextEditorPanel(numberOfTextWindows, textEditor, this);
         textEditor.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         textEditor.addTab("New File", temp);
 
@@ -129,6 +131,7 @@ public class IDEWindow extends JFrame {
 
         setVisible(true);
 
+        ideWindow = this;
 
     }
 
@@ -138,6 +141,7 @@ public class IDEWindow extends JFrame {
      * @return JMenuBar to be added to the JFrame
      */
     public JMenuBar setUpMenuBar() {
+
         JMenuBar menuBar = new JMenuBar();
 
         menuBar.setFocusable(false);
@@ -157,6 +161,7 @@ public class IDEWindow extends JFrame {
      * @return JMenu for setUpMenuBar to add to menuBar
      */
     public JMenu addFileMenu() {
+
         JMenu file = new JMenu("File");
         //file.setMnemonic(KeyEvent.VK_F);
         //Underlines 'F' int "File"
@@ -166,7 +171,7 @@ public class IDEWindow extends JFrame {
         JMenuItem newWindow = new JMenuItem("New Window");
         JMenuItem textFile = new JMenuItem("Text File");
         textFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        textFile.addActionListener(new MenuActionListener("Text File"));
+        textFile.addActionListener(new MenuActionListener("Text File", this));
         JMenuItem javaFile = new JMenuItem("Java File");
         JMenuItem cFile = new JMenuItem("C File");
         JMenuItem cppFile = new JMenuItem("C++ File");
@@ -178,28 +183,28 @@ public class IDEWindow extends JFrame {
         newMenu.add(cppFile);
 
         newWindow.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() | KeyEvent.SHIFT_DOWN_MASK));
-        newWindow.addActionListener(new MenuActionListener("New Window"));
+        newWindow.addActionListener(new MenuActionListener("New Window", this));
 
         JMenuItem openFile = new JMenuItem("Open");
         openFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        openFile.addActionListener(new MenuActionListener("Open"));
+        openFile.addActionListener(new MenuActionListener("Open", this));
 
         JMenuItem saveFile = new JMenuItem("Save");
         saveFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        saveFile.addActionListener(new MenuActionListener("Save"));
+        saveFile.addActionListener(new MenuActionListener("Save", this));
 
         JMenuItem saveAsFile = new JMenuItem("Save As");
         saveAsFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() | KeyEvent.SHIFT_DOWN_MASK));
-        saveAsFile.addActionListener(new MenuActionListener("Save As"));
+        saveAsFile.addActionListener(new MenuActionListener("Save As", this));
 
 
         JMenuItem exit = new JMenuItem("Close Window");
         exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        exit.addActionListener(new MenuActionListener("Close Window"));
+        exit.addActionListener(new MenuActionListener("Close Window", this));
 
         JMenuItem quit = new JMenuItem("Quit IDE");
         quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        quit.addActionListener(new MenuActionListener("Quit IDE"));
+        quit.addActionListener(new MenuActionListener("Quit IDE", this));
 
         file.add(newMenu);
         file.add(openFile);
@@ -211,41 +216,45 @@ public class IDEWindow extends JFrame {
 
         return file;
     }
+
     /**
      * Method to set up the Edit Menu of the MenuBar
      *
      * @return JMenu for setUpMenuBar to add to menuBar
      */
     public JMenu addEditMenu() {
+
         JMenu edit = new JMenu("Edit");
 
         JMenuItem undo = new JMenuItem("Undo");
-            undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
-                    Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-            undo.addActionListener(new MenuActionListener("Undo"));
+        undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
+                Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        undo.addActionListener(new MenuActionListener("Undo", this));
 
         JMenuItem redo = new JMenuItem("Redo");
-            redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
-                    Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()| KeyEvent.SHIFT_DOWN_MASK));
-            redo.addActionListener(new MenuActionListener("Redo"));
+        redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
+                Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() | KeyEvent.SHIFT_DOWN_MASK));
+        redo.addActionListener(new MenuActionListener("Redo", this));
 
         edit.add(undo);
         edit.add(redo);
 
         return edit;
     }
+
     public void updatePanel(Dimension dimension) {
+
         int width = (int) dimension.getWidth();
         int height = (int) dimension.getHeight();
 
-        int buttonPanelWidth = width - (2*spaceBetweenComponents);
+        int buttonPanelWidth = width - (2 * spaceBetweenComponents);
         int buttonPanelHeight = 20;
-        int filePanelWidth = width/5;
-        int filePanelHeight = 3*height/4;
-        int textEditorWidth = width - (filePanelWidth + (2*spaceBetweenComponents));
-        int textEditorHeight = 3*height/4;
-        int cmdPanelWidth = width - (2*spaceBetweenComponents);
-        int cmdPanelHeight = height - (buttonPanelHeight + filePanelHeight + (2*spaceBetweenComponents) + 30);
+        int filePanelWidth = width / 5;
+        int filePanelHeight = 3 * height / 4;
+        int textEditorWidth = width - (filePanelWidth + (2 * spaceBetweenComponents));
+        int textEditorHeight = 3 * height / 4;
+        int cmdPanelWidth = width - (2 * spaceBetweenComponents);
+        int cmdPanelHeight = height - (buttonPanelHeight + filePanelHeight + (2 * spaceBetweenComponents) + 30);
 
         // Set up the default sizes of the JPanels
         buttonPanel.setPreferredSize(new Dimension(buttonPanelWidth, buttonPanelHeight));

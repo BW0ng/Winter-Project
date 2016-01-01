@@ -8,15 +8,22 @@ import java.awt.event.ActionListener;
 
 // TODO All MenuBars are not working when clicked. It works for shortcuts. Object passed in is MenuBar
 public class MenuActionListener implements ActionListener {
+
     String menuItem;
+    IDEWindow ideWindow;
 
     /**
      * Constructor for the actionListener for the Toolbar
-     * @param menuItem
+     *
+     * @param menuItem Passes in the menuItem as a String
+     * @param ideWindow Passes in the current instance of the IDE
      */
-    public MenuActionListener(String menuItem) {
+    public MenuActionListener(String menuItem, IDEWindow ideWindow) {
+
         this.menuItem = menuItem;
+        this.ideWindow = ideWindow;
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Implement the functions when the menuItem is selected
@@ -24,41 +31,32 @@ public class MenuActionListener implements ActionListener {
 
         String s = e.getActionCommand();
         if (s.equals("Open")) {
-            ToolbarFunctions.open();
+            ToolbarFunctions.open(ideWindow);
 
-        }
-        else if (s.equals("Save")) {
+        } else if (s.equals("Save")) {
             System.out.println("Save");
-            ToolbarFunctions.save(e.getSource());
+            ToolbarFunctions.save(e.getSource(), ideWindow);
 
-        }
-        else if (s.equals("Save As")){
+        } else if (s.equals("Save As")) {
             System.out.println("Save As");
-            ToolbarFunctions.saveAs();
-        }
-        else if (s.equals("Close Window")) {
-            ToolbarFunctions.close(e.getSource());
-        }
-        else if (s.equals("Quit IDE")) {
-            ToolbarFunctions.quit();
+            ToolbarFunctions.saveAs(ideWindow);
+        } else if (s.equals("Close Window")) {
+            ToolbarFunctions.close(e.getSource(), ideWindow);
+        } else if (s.equals("Quit IDE")) {
+            ToolbarFunctions.quit(ideWindow);
 
-        }
-        else if (s.equals("New Window")) {
-            ToolbarFunctions.newWindow();
-        }
-        else if (s.equals("Text File")) {
-            ToolbarFunctions.newTextFile();
+        } else if (s.equals("New Window")) {
+            ToolbarFunctions.newWindow(ideWindow);
+        } else if (s.equals("Text File")) {
+            ToolbarFunctions.newTextFile(ideWindow);
             System.out.println("New Text File");
-        }
-        else if (s.equals("Undo")) {
-            ToolbarFunctions.undo();
-        }
-        else if (s.equals("Redo")) {
-            ToolbarFunctions.redo();
-        }
-        else {
+        } else if (s.equals("Undo")) {
+            ToolbarFunctions.undo(ideWindow);
+        } else if (s.equals("Redo")) {
+            ToolbarFunctions.redo(ideWindow);
+        } else {
             System.out.println(s);
-            ToolbarFunctions.cannotFind();
+            ToolbarFunctions.cannotFind(ideWindow);
 
         }
     }

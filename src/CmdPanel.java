@@ -9,9 +9,11 @@ import java.awt.*;
 // TODO Implement a JTextPane. Used for more advanced and multiple fonts
 
 public class CmdPanel extends JPanel {
+
     JPanel panel;
 
     public CmdPanel(JPanel panel) {
+
         this.panel = panel;
         setBackground(Color.red);
     }
