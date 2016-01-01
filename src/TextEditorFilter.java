@@ -2,6 +2,7 @@
  * Brandon Wong
  * Winter-Project
  */
+
 import javax.swing.text.*;
 
 public class TextEditorFilter extends DocumentFilter {

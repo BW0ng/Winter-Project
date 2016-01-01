@@ -10,9 +10,12 @@ public class IDE {
     protected static int counter = 0;
 
     public static void main(String[] args) {
+
         new SplashScreen();
     }
+
     public static void newIDEWindow() {
+
         try {
             System.getProperty("com.apple.laf.useScreenMenuBar", "true");
             System.getProperty("com.apple.mrj.application.apple.menu.about.name", "IDE");
@@ -20,7 +23,7 @@ public class IDE {
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }  catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
             e.printStackTrace();
