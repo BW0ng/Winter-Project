@@ -1,5 +1,5 @@
 #!/bin/sh
+cd ~/Winter-Project/
+javac -d classes/ src/*.java
 
-cd ~/Winter-Project/src
-`javac -d ../classes/ *.java`
-`java -cp ../classes/ IDE`
+java -cp classes/ IDE

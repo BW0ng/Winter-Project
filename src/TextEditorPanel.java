@@ -14,8 +14,9 @@ import java.io.File;
 
 public class TextEditorPanel extends JPanel {
     protected static JTextPane pane = null;
-    protected static JTabbedPane panel;
+    private static JTabbedPane panel;
     protected static JScrollPane scrollPane;
+    protected JPanel self = null;
     private boolean isSaved = false;
     private boolean edited = false;
     final protected int number;
@@ -26,7 +27,15 @@ public class TextEditorPanel extends JPanel {
         TextEditorPanel.panel = panel;
         file = null;
         IDEWindow.numberOfTextWindows++;
-        final ImageIcon icon = new ImageIcon("../resources/Super-Mario-Pixel.png");
+
+        final ImageIcon icon;
+        if(System.getProperty("user.dir").contains("/src")) {
+            icon = new ImageIcon("../resources/Super-Mario-Pixel.png");
+
+        } else {
+            icon = new ImageIcon("resources/Super-Mario-Pixel.png");
+
+        }
 
         setLayout(new BorderLayout());
 
@@ -39,6 +48,9 @@ public class TextEditorPanel extends JPanel {
                 edited = true;
                 if(textSaved!= null && textSaved.equals(pane.getText())) {
                     isSaved = true;
+                    int number = IDEWindow.textEditor.getSelectedIndex();
+                    IDEWindow.textEditor.remove(number);
+                    IDEWindow.textEditor.add(self, number);
 
                 } else {
                     panel.setIconAt(number,icon);
@@ -53,6 +65,11 @@ public class TextEditorPanel extends JPanel {
                 edited = true;
                 if(textSaved!= null && textSaved.equals(pane.getText())) {
                     isSaved = true;
+
+                    int number = IDEWindow.textEditor.getSelectedIndex();
+                    IDEWindow.textEditor.remove(number);
+                    IDEWindow.textEditor.add(self, number);
+
                 } else {
                     panel.setIconAt(number,icon);
                     System.out.println("Remove Update");
@@ -65,6 +82,11 @@ public class TextEditorPanel extends JPanel {
                 edited = true;
                 if(textSaved!= null && textSaved.equals(pane.getText())) {
                     isSaved = true;
+
+                    int number = IDEWindow.textEditor.getSelectedIndex();
+                    IDEWindow.textEditor.remove(number);
+                    IDEWindow.textEditor.add(self, number);
+
                 } else {
                     panel.setIconAt(number,icon);
                     System.out.println("Changed Update");
@@ -84,6 +106,8 @@ public class TextEditorPanel extends JPanel {
 
         setSize(panel.getPreferredSize());
         add(BorderLayout.CENTER, scrollPane);
+
+        self = this;
 
     }
     public String getText() {
@@ -111,6 +135,7 @@ public class TextEditorPanel extends JPanel {
     }
 
     public void addText(StringBuilder string) {
+        System.out.printf("Tab Number: %d", number);
         pane.setText(string.toString());
     }
     public boolean getSaved() {

@@ -28,6 +28,6 @@ public class IDE {
             e.printStackTrace();
         }
         new IDEWindow("IDE");
-   }
+    }
 
 }

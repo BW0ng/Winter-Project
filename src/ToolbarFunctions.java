@@ -17,7 +17,6 @@ public class ToolbarFunctions {
         int tabNumber = IDEWindow.textEditor.getSelectedIndex();
         TextEditorPanel panel = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(tabNumber);
 
-
         JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
         int option = fileChooser.showOpenDialog(panel);
 
@@ -35,6 +34,7 @@ public class ToolbarFunctions {
                     stringBuffer.append(string).append("\n");
                 }
                 panel.addText(stringBuffer);
+                panel.setSaved(file);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -98,6 +98,12 @@ public class ToolbarFunctions {
                 e.printStackTrace();
             }
         }
+
+        int number = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel1 = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
+        IDEWindow.textEditor.remove(number);
+        IDEWindow.textEditor.add(panel1.self, number);
+        IDEWindow.textEditor.setTitleAt(number, panel1.getFile().getName());
     }
 
     public static void saveAs() {
@@ -177,10 +183,9 @@ public class ToolbarFunctions {
 
     public static void newTextFile() {
         // TODO Need to add it so it splitPanel works with JTextEditorPane
-        final ImageIcon icon = new ImageIcon("../resources/Super-Mario-Pixel.png");
         TextEditorPanel temp = new TextEditorPanel(IDEWindow.numberOfTextWindows,
                     IDEWindow.textEditor);
-        IDEWindow.textEditor.addTab("New File " + IDEWindow.numberOfTextWindows, icon, temp);
+        IDEWindow.textEditor.addTab("New File " + IDEWindow.numberOfTextWindows, temp);
     }
 
     /**
