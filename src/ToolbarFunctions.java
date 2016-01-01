@@ -1,3 +1,18 @@
+/*
+int currentTab = IDEWindow.textEditor.getSelectedIndex();
+TextEditorPanel temp = (TextEditorPanel) IDEWindow.textEditor.getComponentAt(currentTab);
+String text = temp.getText();
+int counter=1;
+for(int i=0;i<text.length();i++) {
+    if(text.charAt(i)==('\n')) {
+        counter++;
+    }
+}
+System.out.println(counter);
+*/
+
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
