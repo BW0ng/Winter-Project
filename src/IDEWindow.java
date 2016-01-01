@@ -139,10 +139,6 @@ public class IDEWindow extends JFrame {
     /**
      * Returns a basic JMenuBar to be added to the JFrame
      *
-     * File - New, Open, Save, Exit Text Window, and Quit
-     *      New - New Window, Text File, Java File, C File, C++ File
-     *
-     *
      * @return JMenuBar to be added to the JFrame
      */
     public JMenuBar setUpMenuBar() {
@@ -150,35 +146,51 @@ public class IDEWindow extends JFrame {
 
         menuBar.setFocusable(false);
 
+        JMenu file = addFileMenu();
+        JMenu edit = addEditMenu();
+
+        menuBar.add(file);
+        menuBar.add(edit);
+
+        return menuBar;
+    }
+
+    /**
+     * Method to set up the File Menu of the MenuBar
+     *
+     * @return JMenu for setUpMenuBar to add to menuBar
+     */
+    public JMenu addFileMenu() {
         JMenu file = new JMenu("File");
         //file.setMnemonic(KeyEvent.VK_F);
         //Underlines 'F' int "File"
         //Does NOT create a shortcut! must do that elsewhere
 
         JMenu newMenu = new JMenu("New");
-            JMenuItem newWindow = new JMenuItem("New Window");
-            JMenuItem textFile = new JMenuItem("Text File");
-                textFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-                textFile.addActionListener(new MenuActionListener("Text File"));
-            JMenuItem javaFile = new JMenuItem("Java File");
-            JMenuItem cFile = new JMenuItem("C File");
-            JMenuItem cppFile = new JMenuItem("C++ File");
-            newMenu.add(newWindow);
-            newMenu.add(new JPopupMenu.Separator());
-            newMenu.add(textFile);
-            newMenu.add(javaFile);
-            newMenu.add(cFile);
-            newMenu.add(cppFile);
+        JMenuItem newWindow = new JMenuItem("New Window");
+        JMenuItem textFile = new JMenuItem("Text File");
+        textFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        textFile.addActionListener(new MenuActionListener("Text File"));
+        JMenuItem javaFile = new JMenuItem("Java File");
+        JMenuItem cFile = new JMenuItem("C File");
+        JMenuItem cppFile = new JMenuItem("C++ File");
+        newMenu.add(newWindow);
+        newMenu.add(new JPopupMenu.Separator());
+        newMenu.add(textFile);
+        newMenu.add(javaFile);
+        newMenu.add(cFile);
+        newMenu.add(cppFile);
 
-            newWindow.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() | KeyEvent.SHIFT_DOWN_MASK));
-            newWindow.addActionListener(new MenuActionListener("New Window"));
+        newWindow.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() | KeyEvent.SHIFT_DOWN_MASK));
+        newWindow.addActionListener(new MenuActionListener("New Window"));
+
         JMenuItem openFile = new JMenuItem("Open");
-            openFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-            openFile.addActionListener(new MenuActionListener("Open"));
+        openFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        openFile.addActionListener(new MenuActionListener("Open"));
 
         JMenuItem saveFile = new JMenuItem("Save");
-            saveFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-            saveFile.addActionListener(new MenuActionListener("Save"));
+        saveFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        saveFile.addActionListener(new MenuActionListener("Save"));
 
         JMenuItem saveAsFile = new JMenuItem("Save As");
         saveAsFile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() | KeyEvent.SHIFT_DOWN_MASK));
@@ -186,12 +198,12 @@ public class IDEWindow extends JFrame {
 
 
         JMenuItem exit = new JMenuItem("Close Window");
-            exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-            exit.addActionListener(new MenuActionListener("Close Window"));
+        exit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        exit.addActionListener(new MenuActionListener("Close Window"));
 
         JMenuItem quit = new JMenuItem("Quit IDE");
-            quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-            quit.addActionListener(new MenuActionListener("Quit IDE"));
+        quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        quit.addActionListener(new MenuActionListener("Quit IDE"));
 
         file.add(newMenu);
         file.add(openFile);
@@ -201,9 +213,30 @@ public class IDEWindow extends JFrame {
         file.add(exit);
         file.add(quit);
 
-        menuBar.add(file);
+        return file;
+    }
+    /**
+     * Method to set up the Edit Menu of the MenuBar
+     *
+     * @return JMenu for setUpMenuBar to add to menuBar
+     */
+    public JMenu addEditMenu() {
+        JMenu edit = new JMenu("Edit");
 
-        return menuBar;
+        JMenuItem undo = new JMenuItem("Undo");
+            undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
+                    Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+            undo.addActionListener(new MenuActionListener("Undo"));
+
+        JMenuItem redo = new JMenuItem("Redo");
+            redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
+                    Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()| KeyEvent.SHIFT_DOWN_MASK));
+            redo.addActionListener(new MenuActionListener("Redo"));
+
+        edit.add(undo);
+        edit.add(redo);
+
+        return edit;
     }
     public void updatePanel(Dimension dimension) {
         int width = (int) dimension.getWidth();

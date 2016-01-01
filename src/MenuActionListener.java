@@ -50,6 +50,12 @@ public class MenuActionListener implements ActionListener {
             ToolbarFunctions.newTextFile();
             System.out.println("New Text File");
         }
+        else if (s.equals("Undo")) {
+            ToolbarFunctions.undo();
+        }
+        else if (s.equals("Redo")) {
+            ToolbarFunctions.redo();
+        }
         else {
             System.out.println(s);
             ToolbarFunctions.cannotFind();

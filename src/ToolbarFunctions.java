@@ -203,6 +203,24 @@ public class ToolbarFunctions {
         IDEWindow.textEditor.addTab("New File " + IDEWindow.numberOfTextWindows, temp);
     }
 
+    public static void undo() {
+        int number = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
+
+        if(panel.undoManager.canUndo()) {
+            panel.undoManager.undo();
+        }
+    }
+
+    public static void redo() {
+        int number = IDEWindow.textEditor.getSelectedIndex();
+        TextEditorPanel panel = (TextEditorPanel)IDEWindow.textEditor.getComponentAt(number);
+
+        if(panel.undoManager.canRedo()) {
+            panel.undoManager.redo();
+        }
+    }
+
     /**
      * The default function if the toolbar name is not recognized
      */

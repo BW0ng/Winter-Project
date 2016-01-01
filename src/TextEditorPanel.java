@@ -1,7 +1,10 @@
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
 import javax.swing.text.*;
+import javax.swing.undo.UndoManager;
 import java.awt.*;
 import java.io.File;
 
@@ -14,8 +17,9 @@ import java.io.File;
 
 public class TextEditorPanel extends JPanel {
     protected static JTextPane pane = null;
-    private static JTabbedPane panel;
+    private JTabbedPane panel = null;
     protected static JScrollPane scrollPane;
+    protected UndoManager undoManager;
     protected JPanel self = null;
     private boolean isSaved = false;
     private boolean edited = false;
@@ -24,9 +28,10 @@ public class TextEditorPanel extends JPanel {
     private File file;
     public TextEditorPanel(final int number, final JTabbedPane panel) {
         this.number = number;
-        TextEditorPanel.panel = panel;
+        this.panel = panel;
         file = null;
         IDEWindow.numberOfTextWindows++;
+        undoManager = new UndoManager();
 
         final ImageIcon icon;
         if(System.getProperty("user.dir").contains("/src")) {
@@ -92,6 +97,12 @@ public class TextEditorPanel extends JPanel {
                     System.out.println("Changed Update");
                     isSaved = false;
                 }
+            }
+        });
+        pane.getDocument().addUndoableEditListener(new UndoableEditListener() {
+            @Override
+            public void undoableEditHappened(UndoableEditEvent e) {
+                undoManager.addEdit(e.getEdit());
             }
         });
 
