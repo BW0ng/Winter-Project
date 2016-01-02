@@ -15,9 +15,9 @@ public class CmdPanel extends JPanel {
     public CmdPanel(JPanel panel, IDEWindow ideWindow) {
         this.panel = panel;
 
-        AbstractTerminalFrame abstractTerminalFrame = new AbstractTerminalFrame(panel, ideWindow);
+        TerminalFrame terminalFrame = new TerminalFrame(panel, ideWindow);
 
-        add(abstractTerminalFrame.frame);
+        add(terminalFrame.frame);
         System.out.printf("Height: %d, Width: %d in cmdPanel%n%n",
                 (int)getPreferredSize().getHeight(), (int)getPreferredSize().getWidth());
     }

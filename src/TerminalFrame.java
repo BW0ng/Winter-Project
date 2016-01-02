@@ -7,10 +7,7 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Maps;
 import com.jediterm.pty.PtyMain;
 import com.jediterm.terminal.TtyConnector;
-import com.jediterm.terminal.ui.TabbedTerminalWidget;
-import com.jediterm.terminal.ui.TerminalSession;
-import com.jediterm.terminal.ui.TerminalWidget;
-import com.jediterm.terminal.ui.UIUtil;
+import com.jediterm.terminal.ui.*;
 import com.jediterm.terminal.ui.settings.DefaultTabbedSettingsProvider;
 import com.pty4j.PtyProcess;
 import org.apache.log4j.Logger;
@@ -21,7 +18,7 @@ import java.nio.charset.Charset;
 import java.util.Map;
 
 
-public class AbstractTerminalFrame {
+public class TerminalFrame {
     public static final Logger LOG = Logger.getLogger(AbstractTerminalFrame.class);
 
     private JPanel myBufferFrame;
@@ -63,7 +60,7 @@ public class AbstractTerminalFrame {
         }
     }
 
-    protected AbstractTerminalFrame(JPanel cmdPanel, IDEWindow ideWindow) {
+    protected TerminalFrame(JPanel cmdPanel, IDEWindow ideWindow) {
         myTerminal = new TabbedTerminalWidget(new DefaultTabbedSettingsProvider(), new Predicate<TerminalWidget>() {
             @Override
             public boolean apply(TerminalWidget terminalWidget) {
