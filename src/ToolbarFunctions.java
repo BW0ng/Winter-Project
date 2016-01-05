@@ -53,6 +53,8 @@ public class ToolbarFunctions {
                 panel.addText(stringBuffer);
                 panel.setSaved(file);
 
+                ideWindow.textEditor.setTabComponentAt(tabNumber,new TabbedPaneTab(file.getName(),ideWindow));
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -67,6 +69,7 @@ public class ToolbarFunctions {
         TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
                 ideWindow.textEditor, ideWindow);
         ideWindow.textEditor.add(file.getName(), temp);
+        ideWindow.textEditor.setTabComponentAt(ideWindow.numberOfTextWindows-1,new TabbedPaneTab(file.getName(),ideWindow));
         temp.setOpenedFile();
 
         try {
@@ -197,14 +200,17 @@ public class ToolbarFunctions {
 
             if (!panel.getEdited()) {
                 ideWindow.textEditor.remove(tabNumber);
+                ideWindow.numberOfTextWindows--;
             } else if (panel.getSaved()) {
                 ideWindow.textEditor.remove(tabNumber);
+                ideWindow.numberOfTextWindows--;
             } else {
                 int reply = JOptionPane.showConfirmDialog(null, "Do you want to save?", "Save", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (reply == JOptionPane.YES_OPTION) {
                     save(o, ideWindow);
                 } else if (reply == JOptionPane.NO_OPTION) {
                     ideWindow.textEditor.remove(tabNumber);
+                    ideWindow.numberOfTextWindows--;
                 }
             }
         }
@@ -237,7 +243,8 @@ public class ToolbarFunctions {
         // TODO Need to add it so it splitPanel works with JTextEditorPane
         TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
                 ideWindow.textEditor, ideWindow);
-        ideWindow.textEditor.addTab("New File " + ideWindow.numberOfTextWindows, temp);
+        ideWindow.textEditor.add("New File " + ideWindow.numberOfTextWindows, temp);
+        ideWindow.textEditor.setTabComponentAt(ideWindow.numberOfTextWindows-1,new TabbedPaneTab("New File " + ideWindow.numberOfTextWindows,ideWindow));
     }
 
     /**

@@ -46,6 +46,7 @@ public class IDEWindow extends JFrame {
 
         numberOfTextWindows = 0;
 
+
         // Instantiate JPanels
         cmdPanel = new JPanel();
         textEditor = new JTabbedPane();
@@ -105,6 +106,7 @@ public class IDEWindow extends JFrame {
         TextEditorPanel temp = new TextEditorPanel(numberOfTextWindows, textEditor, this);
         textEditor.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         textEditor.addTab("New File", temp);
+        textEditor.setTabComponentAt(0, new TabbedPaneTab("New File",this));
 
         updatePanel(getSize());
 
