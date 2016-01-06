@@ -1,7 +1,8 @@
 
 *.class
 
-
 classes/*.class
 
-*.class
+.idea/workspace.xml
+
+.idea/*.xml

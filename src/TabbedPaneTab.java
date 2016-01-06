@@ -34,14 +34,13 @@ public class TabbedPaneTab extends JPanel {
         //close.addActionListener(new MenuActionListener("Close Window", ideWindow));
         close.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Closing Window");
+                System.out.println("Closing Tab");
 
                 if (ideWindow.textEditor.getTabCount() <= 0) {
                     ideWindow.dispose();
                 } else {
                     int tabNumber=0;
                     for(int i=0;i<ideWindow.textEditor.getTabCount();i++) {
-                        System.out.println(title + ":" + ideWindow.textEditor.getTitleAt(i));
                         if(title.equals(ideWindow.textEditor.getTitleAt(i))) {
                             tabNumber = i;
                         }
