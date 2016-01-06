@@ -11,9 +11,10 @@ public class TabbedPaneTab extends JPanel {
     String title;
     public TabbedPaneTab(String title, IDEWindow ideWindow) {
         this.title=title;
-        JLabel label = new JLabel(title);
+        JLabel label = new JLabel("<html><font color='black'>" + title + "</font></html>");
         ImageIcon icon = new ImageIcon("../resources/closebutton.png");
         JButton close = new JButton(icon);
+        close.setBackground(Color.BLACK);
         close.setPreferredSize(new Dimension(10,10));
         //close.addActionListener(new MenuActionListener("Close Window", ideWindow));
         close.addActionListener(new ActionListener() {
