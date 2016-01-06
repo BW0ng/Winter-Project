@@ -8,13 +8,29 @@ import java.awt.event.*;
  */
 
 public class TabbedPaneTab extends JPanel {
-    String title;
-    public TabbedPaneTab(String title, IDEWindow ideWindow) {
+    private JButton isEditedButton;
+    private JPanel panel;
+    private JLabel label;
+    private String title;
+    private boolean hasIcon;
+    public TabbedPaneTab(final String title, final IDEWindow ideWindow) {
         this.title=title;
-        JLabel label = new JLabel(title);
-        ImageIcon icon = new ImageIcon("../resources/closebutton.png");
+        panel = this;
+         label = new JLabel(title);
+        ImageIcon icon;
+        ImageIcon isEdited;
+        if (System.getProperty("user.dir").contains("/src")) {
+            icon = new ImageIcon("../resources/closebutton.png");
+            isEdited = new ImageIcon("../resources/Super-Mario-Pixel.png");
+        } else {
+            icon = new ImageIcon("resources/closebutton.png");
+            isEdited = new ImageIcon("resources/Super-Mario-Pixel.png");
+        }
         JButton close = new JButton(icon);
-        close.setPreferredSize(new Dimension(10,10));
+        close.setPreferredSize(new Dimension(15,15));
+
+        isEditedButton = new JButton(isEdited);
+        isEditedButton.setPreferredSize(new Dimension(16, 16));
         //close.addActionListener(new MenuActionListener("Close Window", ideWindow));
         close.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -52,7 +68,34 @@ public class TabbedPaneTab extends JPanel {
                 }
             }
         });
-        add(label);
-        add(close);
+        // Adds a border of 5 pixels between components
+        setLayout(new BorderLayout(5, 5));
+
+        add(label, BorderLayout.CENTER);
+        add(close, BorderLayout.EAST);
+        removeIcon();
+    }
+    public TabbedPaneTab(final String title, final IDEWindow ideWindow, boolean addIcon) {
+        new TabbedPaneTab(title, ideWindow);
+        addIcon();
+    }
+    public void addIcon() {
+        hasIcon = true;
+        panel.add(isEditedButton, BorderLayout.WEST);
+        panel.revalidate();
+    }
+    public void removeIcon() {
+        if(hasIcon()) {
+            panel.remove(isEditedButton);
+            panel.revalidate();
+        }
+        hasIcon = false;
+    }
+    public boolean hasIcon() {
+        return hasIcon;
+    }
+    public void setTitle(String title) {
+        label.setText(title);
+        panel.revalidate();
     }
 }

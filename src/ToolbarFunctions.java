@@ -53,7 +53,7 @@ public class ToolbarFunctions {
                 panel.addText(stringBuffer);
                 panel.setSaved(file);
 
-                ideWindow.textEditor.setTabComponentAt(tabNumber,new TabbedPaneTab(file.getName(),ideWindow));
+                panel.tabbedPaneTab.setTitle(file.getName());
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -66,10 +66,11 @@ public class ToolbarFunctions {
     public static void open(File file, IDEWindow ideWindow) {
 
         System.out.println("Opening File from JTree");
+        TabbedPaneTab tabbedPaneTab = new TabbedPaneTab(file.getName(), ideWindow);
         TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
-                ideWindow.textEditor, ideWindow);
+                ideWindow.textEditor, ideWindow, tabbedPaneTab);
         ideWindow.textEditor.add(file.getName(), temp);
-        ideWindow.textEditor.setTabComponentAt(ideWindow.numberOfTextWindows-1,new TabbedPaneTab(file.getName(),ideWindow));
+        ideWindow.textEditor.setTabComponentAt(ideWindow.numberOfTextWindows-1, tabbedPaneTab);
         temp.setOpenedFile();
 
         try {
@@ -241,10 +242,11 @@ public class ToolbarFunctions {
      */
     public static void newTextFile(IDEWindow ideWindow) {
         // TODO Need to add it so it splitPanel works with JTextEditorPane
+        TabbedPaneTab tabbedPaneTab = new TabbedPaneTab("New File" + ideWindow.numberOfTextWindows, ideWindow);
         TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
-                ideWindow.textEditor, ideWindow);
+                ideWindow.textEditor, ideWindow, tabbedPaneTab );
         ideWindow.textEditor.add("New File " + ideWindow.numberOfTextWindows, temp);
-        ideWindow.textEditor.setTabComponentAt(ideWindow.numberOfTextWindows-1,new TabbedPaneTab("New File " + ideWindow.numberOfTextWindows,ideWindow));
+        ideWindow.textEditor.setTabComponentAt(ideWindow.numberOfTextWindows-1,tabbedPaneTab);
     }
 
     /**
