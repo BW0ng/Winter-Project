@@ -12,12 +12,6 @@ public class MenuActionListener implements ActionListener {
     String menuItem;
     IDEWindow ideWindow;
 
-    /**
-     * Constructor for the actionListener for the Toolbar
-     *
-     * @param menuItem Passes in the menuItem as a String
-     * @param ideWindow Passes in the current instance of the IDE
-     */
     public MenuActionListener(String menuItem, IDEWindow ideWindow) {
 
         this.menuItem = menuItem;

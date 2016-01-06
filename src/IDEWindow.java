@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
@@ -23,11 +24,6 @@ public class IDEWindow extends JFrame {
     JPanel filePanel;
     JPanel buttonPanel;
 
-    /**
-     * Basic constructor used to set up the JFrame for the entire program
-     *
-     * @param name Name of the IDE Window
-     */
     public IDEWindow(String name) {
 
         int width;
@@ -36,8 +32,13 @@ public class IDEWindow extends JFrame {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
 
-        width = (int) (7 * screenSize.getWidth() / 8);
-        height = (int) (7 * screenSize.getHeight() / 8);
+        if(IDE.testing) {
+            width = (int) (5*screenSize.getWidth()/8);
+            height = (int) (5*screenSize.getHeight()/8);
+        } else {
+            width = (int) (7 * screenSize.getWidth() / 8);
+            height = (int) (7 * screenSize.getHeight() / 8);
+        }
 
         setTitle(name);
         setSize(width, height);
@@ -46,12 +47,11 @@ public class IDEWindow extends JFrame {
 
         numberOfTextWindows = 0;
 
-
         // Instantiate JPanels
         cmdPanel = new JPanel();
         textEditor = new JTabbedPane();
         filePanel = new JPanel();
-        buttonPanel = new JPanel();
+        buttonPanel = new ButtonPanel(this);
 
 
         SpringLayout layout = new SpringLayout();
@@ -95,9 +95,6 @@ public class IDEWindow extends JFrame {
         layout.putConstraint(NORTH, cmdPanel, 5, SOUTH, filePanel);
         layout.putConstraint(WEST, cmdPanel, 5, WEST, IDEPanel);
 
-
-        buttonPanel.setBackground(Color.BLACK);
-
         FilePanel fileTree = new FilePanel(filePanel, this);
         filePanel.add(fileTree);
 
@@ -117,8 +114,9 @@ public class IDEWindow extends JFrame {
 
         middle.setOneTouchExpandable(true);
         whole.setOneTouchExpandable(true);
-        middle.setResizeWeight(0.5);
+        middle.setResizeWeight(0.75);
         whole.setResizeWeight(0.5);
+        top.setResizeWeight(0.1);
         top.setDividerSize(0);
 
         IDEPanel.add(whole);
@@ -135,11 +133,6 @@ public class IDEWindow extends JFrame {
 
     }
 
-    /**
-     * Returns a basic JMenuBar to be added to the JFrame
-     *
-     * @return JMenuBar to be added to the JFrame
-     */
     public JMenuBar setUpMenuBar() {
 
         JMenuBar menuBar = new JMenuBar();
@@ -155,11 +148,7 @@ public class IDEWindow extends JFrame {
         return menuBar;
     }
 
-    /**
-     * Method to set up the File Menu of the MenuBar
-     *
-     * @return JMenu for setUpMenuBar to add to menuBar
-     */
+
     public JMenu addFileMenu() {
 
         JMenu file = new JMenu("File");
@@ -217,11 +206,7 @@ public class IDEWindow extends JFrame {
         return file;
     }
 
-    /**
-     * Method to set up the Edit Menu of the MenuBar
-     *
-     * @return JMenu for setUpMenuBar to add to menuBar
-     */
+
     public JMenu addEditMenu() {
 
         JMenu edit = new JMenu("Edit");
@@ -248,7 +233,7 @@ public class IDEWindow extends JFrame {
         int height = (int) dimension.getHeight();
 
         int buttonPanelWidth = width - (2 * spaceBetweenComponents);
-        int buttonPanelHeight = 20;
+        int buttonPanelHeight = 15;
         int filePanelWidth = width / 5;
         int filePanelHeight = 3 * height / 4;
         int textEditorWidth = width - (filePanelWidth + (2 * spaceBetweenComponents));
