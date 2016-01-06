@@ -75,10 +75,6 @@ public class TabbedPaneTab extends JPanel {
         add(close, BorderLayout.EAST);
         removeIcon();
     }
-    public TabbedPaneTab(final String title, final IDEWindow ideWindow, boolean addIcon) {
-        new TabbedPaneTab(title, ideWindow);
-        addIcon();
-    }
     public void addIcon() {
         hasIcon = true;
         panel.add(isEditedButton, BorderLayout.WEST);

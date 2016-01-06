@@ -22,10 +22,6 @@ import java.io.*;
  */
 public class ToolbarFunctions {
 
-    /**
-     * Function for opening a file
-     * @param ideWindow  Passes in the current instance of the IDE
-     */
     public static void open(IDEWindow ideWindow) {
 
         System.out.println("Opening File");
@@ -94,11 +90,6 @@ public class ToolbarFunctions {
         }
     }
 
-    /**
-     * Function for saving a file
-     * @param o
-     * @param ideWindow  Passes in the current instance of the IDE
-     */
     public static void save(Object o, IDEWindow ideWindow) {
 
         // TODO Need to fix Saving function so it saves.
@@ -152,10 +143,6 @@ public class ToolbarFunctions {
         }
     }
 
-    /**
-     * Function for saving the function as a certain file
-     * @param ideWindow  Passes in the current instance of the IDE
-     */
     public static void saveAs(IDEWindow ideWindow) {
 
         int tabNumber = ideWindow.textEditor.getSelectedIndex();
@@ -183,11 +170,6 @@ public class ToolbarFunctions {
         }
     }
 
-    /**
-     * Closes the current tab. If no tabs are remaining closes the window
-     * @param o
-     * @param ideWindow Passes in the current instance of the IDE
-     */
     public static void close(Object o, IDEWindow ideWindow) {
 
         System.out.println("Closing Window");
@@ -217,42 +199,31 @@ public class ToolbarFunctions {
         }
     }
 
-    /**
-     * Quits the IDE
-     * @param ideWindow Passes in the current instance of the IDE
-     */
     public static void quit(IDEWindow ideWindow) {
 
         System.exit(0);
     }
 
-    /**
-     * Starts a new instance of the IDE
-     * @param ideWindow  Passes in the current instance of the IDE
-     */
     public static void newWindow(IDEWindow ideWindow) {
 
         IDE.counter++;
         new IDEWindow("IDE " + IDE.counter);
     }
 
-    /**
-     * Method to add a new tab as a text format
-     * @param ideWindow Passes in the current instance of the IDE
-     */
     public static void newTextFile(IDEWindow ideWindow) {
         // TODO Need to add it so it splitPanel works with JTextEditorPane
-        TabbedPaneTab tabbedPaneTab = new TabbedPaneTab("New File" + ideWindow.numberOfTextWindows, ideWindow);
+        TabbedPaneTab tabbedPaneTab;
+        if(ideWindow.numberOfTextWindows == 0) {
+            tabbedPaneTab = new TabbedPaneTab("New File ", ideWindow);
+        } else {
+            tabbedPaneTab = new TabbedPaneTab("New File " + ideWindow.numberOfTextWindows, ideWindow);
+        }
         TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
                 ideWindow.textEditor, ideWindow, tabbedPaneTab );
         ideWindow.textEditor.add("New File " + ideWindow.numberOfTextWindows, temp);
         ideWindow.textEditor.setTabComponentAt(ideWindow.numberOfTextWindows-1,tabbedPaneTab);
     }
 
-    /**
-     * Method to undo in the current tab
-     * @param ideWindow Passes in the current instance of the IDE
-     */
     public static void undo(IDEWindow ideWindow) {
 
         int number = ideWindow.textEditor.getSelectedIndex();
@@ -263,10 +234,6 @@ public class ToolbarFunctions {
         }
     }
 
-    /**
-     * Method to redo in the current tab
-     * @param ideWindow Passes in the current instance of the IDE
-     */
     public static void redo(IDEWindow ideWindow) {
 
         int number = ideWindow.textEditor.getSelectedIndex();
@@ -277,21 +244,12 @@ public class ToolbarFunctions {
         }
     }
 
-    /**
-     * Function if unknown function
-     * @param ideWindow Passes in the current instance of the IDE
-     */
+
     public static void cannotFind(IDEWindow ideWindow) {
 
         System.out.println("Unknown Function");
     }
 
-    /**
-     * Returns the current window to dispose of it
-     *
-     * @param c The ActionEvent passed in from the Listener
-     * @return The current window that is in focus
-     */
     public static Window findWindow(Component c) {
 
         if (c instanceof Window) {
