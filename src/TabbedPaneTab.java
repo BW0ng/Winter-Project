@@ -15,13 +15,6 @@ public class TabbedPaneTab extends JPanel {
     private boolean hasIcon;
     public TabbedPaneTab(final String title, final IDEWindow ideWindow) {
         this.title=title;
-<<<<<<< HEAD
-        JLabel label = new JLabel("<html><font color='black'>" + title + "</font></html>");
-        ImageIcon icon = new ImageIcon("../resources/closebutton.png");
-        JButton close = new JButton(icon);
-        close.setBackground(Color.BLACK);
-        close.setPreferredSize(new Dimension(10,10));
-=======
         panel = this;
          label = new JLabel(title);
         ImageIcon icon;
@@ -38,7 +31,6 @@ public class TabbedPaneTab extends JPanel {
 
         isEditedButton = new JButton(isEdited);
         isEditedButton.setPreferredSize(new Dimension(16, 16));
->>>>>>> origin/UI
         //close.addActionListener(new MenuActionListener("Close Window", ideWindow));
         close.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
