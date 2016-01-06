@@ -20,6 +20,7 @@ public class TextEditorPanel extends JPanel {
     protected int number = 0;
     protected JTextPane pane = null;
     protected JScrollPane scrollPane;
+    protected TabbedPaneTab tabbedPaneTab;
     protected UndoManager undoManager;
     protected JPanel self = null;
     private JTabbedPane panel = null;
@@ -30,23 +31,16 @@ public class TextEditorPanel extends JPanel {
     private File file;
     private IDEWindow ideWindow;
 
-    public TextEditorPanel(final int number, final JTabbedPane panel, final IDEWindow ideWindow) {
+    public TextEditorPanel(final int number, final JTabbedPane panel,
+                           final IDEWindow ideWindow, TabbedPaneTab tabbedPaneTab) {
 
+        this.tabbedPaneTab = tabbedPaneTab;
         this.ideWindow = ideWindow;
         this.number = number;
         this.panel = panel;
         file = null;
         ideWindow.numberOfTextWindows++;
         undoManager = new UndoManager();
-
-        final ImageIcon icon;
-        if (System.getProperty("user.dir").contains("/src")) {
-            icon = new ImageIcon("../resources/Super-Mario-Pixel.png");
-
-        } else {
-            icon = new ImageIcon("resources/Super-Mario-Pixel.png");
-
-        }
 
         setLayout(new BorderLayout());
 
@@ -56,48 +50,63 @@ public class TextEditorPanel extends JPanel {
             // TODO Add code to insert an icon when not saved
             @Override
             public void insertUpdate(DocumentEvent e) {
-
                 edited = true;
-                if (openedFile || (textSaved != null && textSaved.equals(pane.getText()))) {
+                TextEditorPanel panel = (TextEditorPanel)ideWindow.textEditor
+                        .getComponentAt(ideWindow.textEditor.getSelectedIndex());
+
+                if (openedFile || (textSaved == null && pane.getText().equals(""))
+                        ||(textSaved != null && textSaved.equals(pane.getText()))) {
                     isSaved = true;
-                    if(ideWindow.textEditor.getIconAt(ideWindow.textEditor.getSelectedIndex()) != null) {
-                        removeIcon();
+                    openedFile = false;
+
+                    if(panel.tabbedPaneTab.hasIcon()) {
+                        panel.tabbedPaneTab.removeIcon();
                     }
 
                 } else {
-                    panel.setIconAt(number, icon);
+                    panel.tabbedPaneTab.addIcon();
                     isSaved = false;
                 }
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-
                 edited = true;
-                if (textSaved != null && textSaved.equals(pane.getText())) {
+                TextEditorPanel panel = (TextEditorPanel)ideWindow.textEditor
+                        .getComponentAt(ideWindow.textEditor.getSelectedIndex());
+
+                if (openedFile || (textSaved == null && pane.getText().equals(""))
+                        ||(textSaved != null && textSaved.equals(pane.getText()))) {
                     isSaved = true;
-                    if(ideWindow.textEditor.getIconAt(ideWindow.textEditor.getSelectedIndex()) != null) {
-                        removeIcon();
+                    openedFile = false;
+
+                    if(panel.tabbedPaneTab.hasIcon()) {
+                        panel.tabbedPaneTab.removeIcon();
                     }
 
                 } else {
-                    panel.setIconAt(number, icon);
+                    panel.tabbedPaneTab.addIcon();
                     isSaved = false;
                 }
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-
                 edited = true;
-                if (textSaved != null && textSaved.equals(pane.getText())) {
+                TextEditorPanel panel = (TextEditorPanel)ideWindow.textEditor
+                        .getComponentAt(ideWindow.textEditor.getSelectedIndex());
+
+                if (openedFile || (textSaved == null && pane.getText().equals(""))
+                        ||(textSaved != null && textSaved.equals(pane.getText()))) {
                     isSaved = true;
-                    if(ideWindow.textEditor.getIconAt(ideWindow.textEditor.getSelectedIndex()) != null) {
-                        removeIcon();
+                    openedFile = false;
+
+                    if(panel.tabbedPaneTab.hasIcon()) {
+                        panel.tabbedPaneTab.removeIcon();
                     }
 
                 } else {
-                    panel.setIconAt(number, icon);
+                    panel.tabbedPaneTab.addIcon();
                     isSaved = false;
                 }
             }
@@ -157,25 +166,19 @@ public class TextEditorPanel extends JPanel {
     }
 
     public void setSaved(File file) {
-
         isSaved = true;
         textSaved = pane.getText();
         this.file = file;
-        if(ideWindow.textEditor.getIconAt(ideWindow.textEditor.getSelectedIndex()) != null) {
-            removeIcon();
+        /*
+        if(ideWindow.tabbedPaneTab.hasIcon()) {
+            ideWindow.tabbedPaneTab.removeIcon();
         }
+        */
     }
 
     public boolean getEdited() {
 
         return edited;
-    }
-    public void removeIcon() {
-        int number = ideWindow.textEditor.getSelectedIndex();
-        TextEditorPanel panel = (TextEditorPanel) ideWindow.textEditor.getComponentAt(number);
-        ideWindow.textEditor.remove(number);
-        ideWindow.textEditor.add(panel.self, number);
-        ideWindow.textEditor.setTitleAt(number, panel.getFile().getName());
     }
     public void setOpenedFile() {
         openedFile = true;
