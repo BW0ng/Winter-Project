@@ -32,6 +32,7 @@ public class ToolbarFunctions {
 
         int tabNumber = ideWindow.textEditor.getSelectedIndex();
         TextEditorPanel panel = (TextEditorPanel) ideWindow.textEditor.getComponentAt(tabNumber);
+        panel.setOpenedFile();
 
         JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
         int option = fileChooser.showOpenDialog(panel);
@@ -52,11 +53,44 @@ public class ToolbarFunctions {
                 panel.addText(stringBuffer);
                 panel.setSaved(file);
 
+                panel.tabbedPaneTab.setTitle(file.getName());
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void open(File file, IDEWindow ideWindow) {
+
+        System.out.println("Opening File from JTree");
+        TabbedPaneTab tabbedPaneTab = new TabbedPaneTab(file.getName(), ideWindow);
+        TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
+                ideWindow.textEditor, ideWindow, tabbedPaneTab);
+        ideWindow.textEditor.add(file.getName(), temp);
+        ideWindow.textEditor.setTabComponentAt(ideWindow.numberOfTextWindows-1, tabbedPaneTab);
+        temp.setOpenedFile();
+
+        try {
+            FileReader reader;
+            reader = new FileReader(file);
+
+            BufferedReader in = new BufferedReader(reader);
+            StringBuilder stringBuffer = new StringBuilder();
+            String string;
+
+            while ((string = in.readLine()) != null) {
+                stringBuffer.append(string).append("\n");
+            }
+            temp.addText(stringBuffer);
+            temp.setSaved(file);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -167,14 +201,17 @@ public class ToolbarFunctions {
 
             if (!panel.getEdited()) {
                 ideWindow.textEditor.remove(tabNumber);
+                ideWindow.numberOfTextWindows--;
             } else if (panel.getSaved()) {
                 ideWindow.textEditor.remove(tabNumber);
+                ideWindow.numberOfTextWindows--;
             } else {
                 int reply = JOptionPane.showConfirmDialog(null, "Do you want to save?", "Save", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (reply == JOptionPane.YES_OPTION) {
                     save(o, ideWindow);
                 } else if (reply == JOptionPane.NO_OPTION) {
                     ideWindow.textEditor.remove(tabNumber);
+                    ideWindow.numberOfTextWindows--;
                 }
             }
         }
@@ -205,9 +242,11 @@ public class ToolbarFunctions {
      */
     public static void newTextFile(IDEWindow ideWindow) {
         // TODO Need to add it so it splitPanel works with JTextEditorPane
+        TabbedPaneTab tabbedPaneTab = new TabbedPaneTab("New File" + ideWindow.numberOfTextWindows, ideWindow);
         TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
-                ideWindow.textEditor, ideWindow);
-        ideWindow.textEditor.addTab("New File " + ideWindow.numberOfTextWindows, temp);
+                ideWindow.textEditor, ideWindow, tabbedPaneTab );
+        ideWindow.textEditor.add("New File " + ideWindow.numberOfTextWindows, temp);
+        ideWindow.textEditor.setTabComponentAt(ideWindow.numberOfTextWindows-1,tabbedPaneTab);
     }
 
     /**

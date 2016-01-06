@@ -32,8 +32,14 @@ public class FilePanel extends JPanel {
 
                 DefaultMutableTreeNode node = (DefaultMutableTreeNode) e
                         .getPath().getLastPathComponent();
-                System.out.println("You selected " + node);
-                ideWindow.textEditor.add(new TextEditorPanel())
+
+                File file = null;
+
+                if(node.isLeaf()) {
+                    file = new File(node.getParent() + "/" + node);
+                    ToolbarFunctions.open(file, ideWindow);
+
+                }
             }
         });
 

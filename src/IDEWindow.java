@@ -46,6 +46,7 @@ public class IDEWindow extends JFrame {
 
         numberOfTextWindows = 0;
 
+
         // Instantiate JPanels
         cmdPanel = new JPanel();
         textEditor = new JTabbedPane();
@@ -59,9 +60,6 @@ public class IDEWindow extends JFrame {
         IDEPanel.addComponentListener(new ComponentListener() {
             @Override
             public void componentResized(ComponentEvent e) {
-
-                System.out.println("Component Resized");
-                System.out.printf("Height: %d, Width: %d\n\n", getHeight(), getWidth());
                 updatePanel(getSize());
             }
 
@@ -100,14 +98,16 @@ public class IDEWindow extends JFrame {
 
         buttonPanel.setBackground(Color.BLACK);
 
-        FilePanel fileTree = new FilePanel(filePanel, ideWindow);
+        FilePanel fileTree = new FilePanel(filePanel, this);
         filePanel.add(fileTree);
 
         cmdPanel.add(new CmdPanel(cmdPanel));
 
-        TextEditorPanel temp = new TextEditorPanel(numberOfTextWindows, textEditor, this);
+        TabbedPaneTab tabbedPaneTab = new TabbedPaneTab("New File", this);
+        TextEditorPanel temp = new TextEditorPanel(numberOfTextWindows, textEditor, this, tabbedPaneTab);
         textEditor.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         textEditor.addTab("New File", temp);
+        textEditor.setTabComponentAt(0, tabbedPaneTab);
 
         updatePanel(getSize());
 
