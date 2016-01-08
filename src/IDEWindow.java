@@ -242,7 +242,7 @@ public class IDEWindow extends JFrame {
         JMenuItem openTerminal = new JMenuItem("Open Terminal");
         openTerminal.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T,
                 Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-        openTerminal.addActionListener(new MenuActionListener("Undo", this));
+        openTerminal.addActionListener(new MenuActionListener("Open Terminal", this));
         view.add(openTerminal);
 
         return view;

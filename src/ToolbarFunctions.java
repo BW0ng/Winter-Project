@@ -248,7 +248,6 @@ public class ToolbarFunctions {
         ideWindow.jspWhole.setDividerLocation(ideWindow.jspWholeDefualtLocation);
     }
 
-
     public static void cannotFind(IDEWindow ideWindow) {
 
         System.out.println("Unknown Function");
