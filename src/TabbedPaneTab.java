@@ -16,20 +16,27 @@ public class TabbedPaneTab extends JPanel {
     public TabbedPaneTab(final String title, final IDEWindow ideWindow) {
         this.title=title;
         panel = this;
-         label = new JLabel(title);
-        ImageIcon icon;
+        label = new JLabel(title);
+        label.setOpaque(false);
+        ImageIcon closeButtonIcon;
+        ImageIcon closeButtonHoverIcon;
         ImageIcon isEdited;
         if (System.getProperty("user.dir").contains("/src")) {
-            icon = new ImageIcon("../resources/closebutton.png");
+            closeButtonIcon = new ImageIcon("../resources/closebutton.png");
+            closeButtonHoverIcon = new ImageIcon("../resources/closebuttonhover.png");
             isEdited = new ImageIcon("../resources/Super-Mario-Pixel.png");
         } else {
-            icon = new ImageIcon("resources/closebutton.png");
+            closeButtonIcon = new ImageIcon("resources/closebutton.png");
+            closeButtonHoverIcon = new ImageIcon("resources/closebuttonhover.png");
             isEdited = new ImageIcon("resources/Super-Mario-Pixel.png");
         }
-        JButton close = new JButton(icon);
+        JButton close = new JButton(closeButtonIcon);
+        close.setRolloverIcon(closeButtonHoverIcon);
+        close.setBorderPainted(false);
         close.setPreferredSize(new Dimension(15,15));
 
         isEditedButton = new JButton(isEdited);
+        isEditedButton.setBorderPainted(false);
         isEditedButton.setPreferredSize(new Dimension(16, 16));
         //close.addActionListener(new MenuActionListener("Close Window", ideWindow));
         close.addActionListener(new ActionListener() {
@@ -73,6 +80,8 @@ public class TabbedPaneTab extends JPanel {
         add(label, BorderLayout.CENTER);
         add(close, BorderLayout.EAST);
         removeIcon();
+
+        setOpaque(false);
     }
     public void addIcon() {
         hasIcon = true;
