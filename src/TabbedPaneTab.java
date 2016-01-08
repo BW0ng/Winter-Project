@@ -12,9 +12,11 @@ public class TabbedPaneTab extends JPanel {
     private JPanel panel;
     private JLabel label;
     private String title;
+    public int ID;
     private boolean hasIcon;
-    public TabbedPaneTab(final String title, final IDEWindow ideWindow) {
+    public TabbedPaneTab(final String title,final int ID ,final IDEWindow ideWindow) {
         this.title=title;
+        this.ID=ID;
         panel = this;
         label = new JLabel(title);
         label.setOpaque(false);
@@ -48,7 +50,8 @@ public class TabbedPaneTab extends JPanel {
                 } else {
                     int tabNumber=0;
                     for(int i=0;i<ideWindow.textEditor.getTabCount();i++) {
-                        if(title.equals(ideWindow.textEditor.getTitleAt(i))) {
+                        TabbedPaneTab temp = (TabbedPaneTab) ideWindow.textEditor.getTabComponentAt(i);
+                        if(ID == temp.ID) {
                             tabNumber = i;
                         }
                     }
