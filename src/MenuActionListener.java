@@ -41,7 +41,9 @@ public class MenuActionListener implements ActionListener {
         } else if (s.equals("Undo")) {
             ToolbarFunctions.undo(ideWindow);
         } else if (s.equals("Redo")) {
-            ToolbarFunctions.redo(ideWindow);
+            ToolbarFunctions.redo(ideWindow);}
+        else if(e.getActionCommand().equals("Open Terminal")) {
+            ToolbarFunctions.openTerminal(ideWindow);
         } else {
             System.out.println(s);
             ToolbarFunctions.cannotFind(ideWindow);

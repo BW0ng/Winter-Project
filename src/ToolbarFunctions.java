@@ -244,6 +244,10 @@ public class ToolbarFunctions {
         }
     }
 
+    public static void openTerminal(IDEWindow ideWindow) {
+        ideWindow.jspWhole.setDividerLocation(ideWindow.jspWholeDefualtLocation);
+    }
+
 
     public static void cannotFind(IDEWindow ideWindow) {
 

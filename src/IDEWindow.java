@@ -23,6 +23,10 @@ public class IDEWindow extends JFrame {
     JPanel cmdPanel;
     JPanel filePanel;
     JPanel buttonPanel;
+    protected JSplitPane jspMiddle;
+    protected JSplitPane jspTop;
+    protected JSplitPane jspWhole;
+    protected int jspWholeDefualtLocation;
 
     public IDEWindow(String name) {
 
@@ -108,18 +112,19 @@ public class IDEWindow extends JFrame {
 
         updatePanel(getSize());
 
-        JSplitPane middle = new JSplitPane(HORIZONTAL_SPLIT, filePanel, textEditor);
-        JSplitPane top = new JSplitPane(VERTICAL_SPLIT, buttonPanel, middle);
-        JSplitPane whole = new JSplitPane(VERTICAL_SPLIT, top, cmdPanel);
+        jspMiddle = new JSplitPane(HORIZONTAL_SPLIT, filePanel, textEditor);
+        jspTop = new JSplitPane(VERTICAL_SPLIT, buttonPanel, jspMiddle);
+        jspWhole = new JSplitPane(VERTICAL_SPLIT, jspTop, cmdPanel);
 
-        middle.setOneTouchExpandable(true);
-        whole.setOneTouchExpandable(true);
-        middle.setResizeWeight(0.75);
-        whole.setResizeWeight(0.5);
-        top.setResizeWeight(0.1);
-        top.setDividerSize(0);
+        jspMiddle.setOneTouchExpandable(true);
+        jspWhole.setOneTouchExpandable(true);
+        jspMiddle.setResizeWeight(0.75);
+        jspWhole.setResizeWeight(0.5);
+        jspWholeDefualtLocation = jspWhole.getDividerLocation();
+        jspTop.setResizeWeight(0.1);
+        jspTop.setDividerSize(0);
 
-        IDEPanel.add(whole);
+        IDEPanel.add(jspWhole);
 
         add(IDEPanel);
 
@@ -141,9 +146,11 @@ public class IDEWindow extends JFrame {
 
         JMenu file = addFileMenu();
         JMenu edit = addEditMenu();
+        JMenu view = addViewMenu();
 
         menuBar.add(file);
         menuBar.add(edit);
+        menuBar.add(view);
 
         return menuBar;
     }
@@ -225,6 +232,19 @@ public class IDEWindow extends JFrame {
         edit.add(redo);
 
         return edit;
+    }
+
+    public JMenu addViewMenu() {
+
+        JMenu view = new JMenu("View");
+
+        JMenuItem openTerminal = new JMenuItem("Open Terminal");
+        openTerminal.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T,
+                Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+        openTerminal.addActionListener(new MenuActionListener("Undo", this));
+        view.add(openTerminal);
+
+        return view;
     }
 
     public void updatePanel(Dimension dimension) {
