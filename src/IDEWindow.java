@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
@@ -27,6 +26,7 @@ public class IDEWindow extends JFrame {
     protected JSplitPane jspMiddle;
     protected JSplitPane jspTop;
     protected JSplitPane jspWhole;
+    protected JLayeredPane jLayeredPane;
     protected int jspWholeDefualtLocation;
 
     public IDEWindow(String name) {
@@ -57,6 +57,8 @@ public class IDEWindow extends JFrame {
         textEditor = new JTabbedPane();
         filePanel = new JPanel();
         buttonPanel = new ButtonPanel(this);
+
+        jLayeredPane = new JLayeredPane();
 
 
         SpringLayout layout = new SpringLayout();
@@ -105,11 +107,16 @@ public class IDEWindow extends JFrame {
 
         cmdPanel.add(new CmdPanel(cmdPanel));
 
+        HintsPanel hintsPanel = new HintsPanel();
+
         TabbedPaneTab tabbedPaneTab = new TabbedPaneTab("New File", numberForTextWindows++ ,this);;
         TextEditorPanel temp = new TextEditorPanel(numberOfTextWindows, textEditor, this, tabbedPaneTab);
         textEditor.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         textEditor.addTab("New File", temp);
         textEditor.setTabComponentAt(0, tabbedPaneTab);
+
+        jLayeredPane.add(hintsPanel, JLayeredPane.DEFAULT_LAYER, 0);
+        j
 
         updatePanel(getSize());
 
