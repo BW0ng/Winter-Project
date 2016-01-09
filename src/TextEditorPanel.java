@@ -54,16 +54,13 @@ public class TextEditorPanel extends JPanel {
         setFont();
 
         lineNumbers = new JTextPane();
-        lineNumbers.setPreferredSize(new Dimension(20, 3000));
         lineNumbers.setBackground(Color.lightGray);
         lineNumbers.setEditable(false);
         lineNumbers.setFont(font);
         lineNumbers.setText("1");
-        System.out.println("Line Numbers Font Size: " + lineNumbers.getFont().getSize());
 
         pane = new JTextPane();
         pane.setFont(font);
-        System.out.println("Text Pane Font Size: " + panel.getFont().getSize());
         pane.setPreferredSize(panel.getPreferredSize());
         pane.getDocument().addDocumentListener(new DocumentListener() {
             // TODO Add code to insert an icon when not saved
@@ -161,6 +158,7 @@ public class TextEditorPanel extends JPanel {
 
     }
 
+    // TODO Need to fix numbers past 22. Has to do with Scrolling
     public String getLineNumbers() {
         int caretPosition = pane.getDocument().getLength();
         Element root = pane.getDocument().getDefaultRootElement();
