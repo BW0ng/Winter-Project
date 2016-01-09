@@ -4,6 +4,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.text.AbstractDocument;
+import javax.swing.text.Element;
 import javax.swing.undo.UndoManager;
 import java.awt.*;
 import java.io.*;
@@ -19,6 +20,7 @@ public class TextEditorPanel extends JPanel {
 
     protected int number = 0;
     protected JTextPane pane = null;
+    protected JTextPane lineNumbers = null;
     protected JScrollPane scrollPane;
     protected TabbedPaneTab tabbedPaneTab;
     protected UndoManager undoManager;
@@ -30,6 +32,12 @@ public class TextEditorPanel extends JPanel {
     private String textSaved;
     private File file;
     private IDEWindow ideWindow;
+
+    // Text Syntax Variables
+    private Font font = null;
+    private int textSize = 0;
+    private String textFont = null;
+
 
     public TextEditorPanel(final int number, final JTabbedPane panel,
                            final IDEWindow ideWindow, TabbedPaneTab tabbedPaneTab) {
@@ -43,8 +51,19 @@ public class TextEditorPanel extends JPanel {
         undoManager = new UndoManager();
 
         setLayout(new BorderLayout());
+        setFont();
+
+        lineNumbers = new JTextPane();
+        lineNumbers.setPreferredSize(new Dimension(20, 3000));
+        lineNumbers.setBackground(Color.lightGray);
+        lineNumbers.setEditable(false);
+        lineNumbers.setFont(font);
+        lineNumbers.setText("1");
+        System.out.println("Line Numbers Font Size: " + lineNumbers.getFont().getSize());
 
         pane = new JTextPane();
+        pane.setFont(font);
+        System.out.println("Text Pane Font Size: " + panel.getFont().getSize());
         pane.setPreferredSize(panel.getPreferredSize());
         pane.getDocument().addDocumentListener(new DocumentListener() {
             // TODO Add code to insert an icon when not saved
@@ -67,6 +86,8 @@ public class TextEditorPanel extends JPanel {
                     panel.tabbedPaneTab.addIcon();
                     isSaved = false;
                 }
+
+                lineNumbers.setText(getLineNumbers());
             }
 
             @Override
@@ -88,6 +109,8 @@ public class TextEditorPanel extends JPanel {
                     panel.tabbedPaneTab.addIcon();
                     isSaved = false;
                 }
+                lineNumbers.setText(getLineNumbers());
+
             }
 
             @Override
@@ -109,6 +132,8 @@ public class TextEditorPanel extends JPanel {
                     panel.tabbedPaneTab.addIcon();
                     isSaved = false;
                 }
+                lineNumbers.setText(getLineNumbers());
+
             }
         });
         pane.getDocument().addUndoableEditListener(new UndoableEditListener() {
@@ -127,12 +152,25 @@ public class TextEditorPanel extends JPanel {
 
         scrollPane = new JScrollPane();
         scrollPane.getViewport().add(pane);
+        scrollPane.setRowHeaderView(lineNumbers);
 
         setSize(panel.getPreferredSize());
         add(BorderLayout.CENTER, scrollPane);
 
         self = this;
 
+    }
+
+    public String getLineNumbers() {
+        int caretPosition = pane.getDocument().getLength();
+        Element root = pane.getDocument().getDefaultRootElement();
+        String text = "1" + System.getProperty("line.separator");
+
+        for(int i = 2; i < root.getElementIndex(caretPosition) + 2; i++) {
+            text += i + System.getProperty("line.separator");
+        }
+
+        return text;
     }
     public String getText() {
 
@@ -182,5 +220,18 @@ public class TextEditorPanel extends JPanel {
     }
     public void setOpenedFile() {
         openedFile = true;
+    }
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
+    }
+    public void setTextFont(String textFont) {
+        this.textFont = textFont;
+    }
+    public void setFont() {
+        if(textSize != 0 && textFont != null) {
+            font = new Font(textFont, Font.PLAIN, textSize);
+        } else {
+            font = UIManager.getDefaults().getFont("TextPane.font");
+        }
     }
 }
