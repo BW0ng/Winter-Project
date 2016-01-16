@@ -21,13 +21,8 @@ public class IDE {
             System.getProperty("com.apple.mrj.application.apple.menu.about.name", "IDE");
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (UnsupportedLookAndFeelException e) {
+        } catch (ClassNotFoundException | IllegalAccessException |
+                    InstantiationException | UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
         new IDEWindow("IDE");

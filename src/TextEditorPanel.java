@@ -63,10 +63,26 @@ public class TextEditorPanel extends JPanel {
         pane.setFont(font);
         pane.setPreferredSize(panel.getPreferredSize());
         pane.getDocument().addDocumentListener(new DocumentListener() {
-            // TODO Add code to insert an icon when not saved
+
+            // TODO Need to fix numbers past 22. Has to do with Scrolling
+            public String getLineNumbers() {
+                int caretPosition = pane.getDocument().getLength();
+                Element root = pane.getDocument().getDefaultRootElement();
+                String text = "1" + System.getProperty("line.separator");
+
+                for(int i = 2; i < root.getElementIndex(caretPosition) + 2; i++) {
+                    text += i + System.getProperty("line.separator");
+                }
+
+                return text;
+            }
+
             @Override
             public void insertUpdate(DocumentEvent e) {
                 edited = true;
+
+                lineNumbers.setText(getLineNumbers());
+
                 TextEditorPanel panel = (TextEditorPanel)ideWindow.textEditor
                         .getComponentAt(ideWindow.textEditor.getSelectedIndex());
 
@@ -83,13 +99,14 @@ public class TextEditorPanel extends JPanel {
                     panel.tabbedPaneTab.addIcon();
                     isSaved = false;
                 }
-
-                lineNumbers.setText(getLineNumbers());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
                 edited = true;
+
+                lineNumbers.setText(getLineNumbers());
+
                 TextEditorPanel panel = (TextEditorPanel)ideWindow.textEditor
                         .getComponentAt(ideWindow.textEditor.getSelectedIndex());
 
@@ -106,13 +123,14 @@ public class TextEditorPanel extends JPanel {
                     panel.tabbedPaneTab.addIcon();
                     isSaved = false;
                 }
-                lineNumbers.setText(getLineNumbers());
-
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
                 edited = true;
+
+                lineNumbers.setText(getLineNumbers());
+
                 TextEditorPanel panel = (TextEditorPanel)ideWindow.textEditor
                         .getComponentAt(ideWindow.textEditor.getSelectedIndex());
 
@@ -129,8 +147,6 @@ public class TextEditorPanel extends JPanel {
                     panel.tabbedPaneTab.addIcon();
                     isSaved = false;
                 }
-                lineNumbers.setText(getLineNumbers());
-
             }
         });
         pane.getDocument().addUndoableEditListener(new UndoableEditListener() {
@@ -150,6 +166,7 @@ public class TextEditorPanel extends JPanel {
         scrollPane = new JScrollPane();
         scrollPane.getViewport().add(pane);
         scrollPane.setRowHeaderView(lineNumbers);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         setSize(panel.getPreferredSize());
         add(BorderLayout.CENTER, scrollPane);
@@ -158,18 +175,6 @@ public class TextEditorPanel extends JPanel {
 
     }
 
-    // TODO Need to fix numbers past 22. Has to do with Scrolling
-    public String getLineNumbers() {
-        int caretPosition = pane.getDocument().getLength();
-        Element root = pane.getDocument().getDefaultRootElement();
-        String text = "1" + System.getProperty("line.separator");
-
-        for(int i = 2; i < root.getElementIndex(caretPosition) + 2; i++) {
-            text += i + System.getProperty("line.separator");
-        }
-
-        return text;
-    }
     public String getText() {
 
         return pane.getText();

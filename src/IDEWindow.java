@@ -17,16 +17,16 @@ public class IDEWindow extends JFrame {
 
     protected IDEWindow ideWindow;
     protected JTabbedPane textEditor;
+    protected JSplitPane jspMiddle;
+    protected JSplitPane jspTop;
+    protected JSplitPane jspWhole;
+    protected int jspWholeDefaultLocation;
     protected int spaceBetweenComponents = 5;
     protected int numberOfTextWindows;
     protected int numberForTextWindows;
     JPanel cmdPanel;
     JPanel filePanel;
     JPanel buttonPanel;
-    protected JSplitPane jspMiddle;
-    protected JSplitPane jspTop;
-    protected JSplitPane jspWhole;
-    protected int jspWholeDefualtLocation;
 
     public IDEWindow(String name) {
 
@@ -49,7 +49,7 @@ public class IDEWindow extends JFrame {
         setLocation(65 + (IDE.counter * 5), 50 + (IDE.counter * 5));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        numberOfTextWindows = numberForTextWindows = 0;
+        numberOfTextWindows = 0;
 
         // Instantiate JPanels
         cmdPanel = new JPanel();
@@ -120,7 +120,7 @@ public class IDEWindow extends JFrame {
         jspWhole.setOneTouchExpandable(true);
         jspMiddle.setResizeWeight(0.75);
         jspWhole.setResizeWeight(0.5);
-        jspWholeDefualtLocation = jspWhole.getDividerLocation();
+        jspWholeDefaultLocation = jspWhole.getDividerLocation();
         jspTop.setResizeWeight(0.1);
         jspTop.setDividerSize(0);
 
@@ -268,6 +268,5 @@ public class IDEWindow extends JFrame {
         cmdPanel.setPreferredSize(new Dimension(cmdPanelWidth, cmdPanelHeight));
 
         repaint();
-
     }
 }
