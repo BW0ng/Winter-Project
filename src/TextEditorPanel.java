@@ -17,7 +17,7 @@ import java.io.*;
 // TODO Implement a JTextPane. Used for more advanced and multiple fonts
 
 public class TextEditorPanel extends JPanel {
-
+    // TODO - Remove This TODO Comment
     protected int number = 0;
     protected JTextPane pane = null;
     protected JTextPane lineNumbers = null;
