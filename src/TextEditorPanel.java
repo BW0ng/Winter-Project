@@ -5,9 +5,10 @@ import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.Element;
+import javax.swing.text.StyledDocument;
 import javax.swing.undo.UndoManager;
 import java.awt.*;
-import java.io.*;
+import java.io.File;
 
 /**
  * Brandon Wong and Topher Thomas
@@ -19,12 +20,14 @@ import java.io.*;
 public class TextEditorPanel extends JPanel {
     // TODO - Remove This TODO Comment
     protected int number = 0;
+    protected String filetype = "";
     protected JTextPane pane = null;
     protected JTextPane lineNumbers = null;
     protected JScrollPane scrollPane;
     protected TabbedPaneTab tabbedPaneTab;
     protected UndoManager undoManager;
-    protected JPanel self = null;
+    protected StyledDocument styledDocument;
+    protected TextEditorPanel self = null;
     private JTabbedPane panel = null;
     private boolean isSaved = false;
     private boolean edited = false;
@@ -47,8 +50,12 @@ public class TextEditorPanel extends JPanel {
         this.number = number;
         this.panel = panel;
         file = null;
+        filetype = "text";
         ideWindow.numberOfTextWindows++;
         undoManager = new UndoManager();
+        styledDocument = pane.getStyledDocument();
+        AbstractDocument doc = (AbstractDocument) styledDocument;
+        doc.setDocumentFilter(new TextEditorFilter());
 
         setLayout(new BorderLayout());
         setFont();
@@ -98,6 +105,10 @@ public class TextEditorPanel extends JPanel {
                 } else {
                     panel.tabbedPaneTab.addIcon();
                     isSaved = false;
+                }
+
+                if(styledDocument instanceof SyntaxStyledDocument) {
+                    ((SyntaxStyledDocument) styledDocument).findComments(self);
                 }
             }
 
@@ -157,10 +168,6 @@ public class TextEditorPanel extends JPanel {
             }
         });
 
-        // AutoIndention
-        AbstractDocument doc = (AbstractDocument) (pane.getDocument());
-        doc.setDocumentFilter(new TextEditorFilter());
-
         // TODO Fix Tab Sizes
 
         scrollPane = new JScrollPane();
@@ -175,16 +182,60 @@ public class TextEditorPanel extends JPanel {
 
     }
 
+    public File getFile() {
+
+        return file;
+    }
     public String getText() {
 
         return pane.getText();
     }
+    public boolean getSaved() {
+        return isSaved;
+    }
+    public boolean getEdited() {
 
+        return edited;
+    }
+    public String getFileType() {
+
+        if(file == null) {
+            return "text";
+        } else {
+            String fileName = file.getName();
+            String fileType = fileName.substring(fileName.lastIndexOf('.'));
+
+            // TODO Add more supported file types.
+            if (fileType.equals(".java")) {
+                this.filetype = "java";
+            } else if (fileType.equals(".cpp") ||
+                    fileType.equals(".cc")) {
+                this.filetype = "c++";
+            } else if (fileType.equals(".c")) {
+                this.filetype = "c";
+            } else {
+                this.filetype = "text";
+            }
+            return filetype;
+        }
+
+    }
+    public void setSaved(File file) {
+        isSaved = true;
+        textSaved = pane.getText();
+        this.file = file;
+
+        if(tabbedPaneTab.hasIcon()) {
+            tabbedPaneTab.removeIcon();
+        }
+
+        getFileType();
+
+    }
     public Dimension getMinimumSize() {
 
         return new Dimension(15, 200);
     }
-
     public Dimension getPreferredSize() {
 
         int height = panel.getSize().height - 5;
@@ -192,37 +243,13 @@ public class TextEditorPanel extends JPanel {
         return new Dimension(width, height);
     }
 
-    public File getFile() {
-
-        return file;
-    }
-
-    public void addText(StringBuilder string) {
-        pane.setText(string.toString());
-    }
-
-    public boolean getSaved() {
-
-        return isSaved;
-    }
-
-    public void setSaved(File file) {
-        isSaved = true;
-        textSaved = pane.getText();
-        this.file = file;
-        /*
-        if(ideWindow.tabbedPaneTab.hasIcon()) {
-            ideWindow.tabbedPaneTab.removeIcon();
-        }
-        */
-    }
-
-    public boolean getEdited() {
-
-        return edited;
-    }
     public void setOpenedFile() {
         openedFile = true;
+    }
+    public void setStyledDocument() {
+        if(filetype.equals("java")) {
+            styledDocument = (StyledDocument) new JavaStyledDocument();
+        }
     }
     public void setTextSize(int textSize) {
         this.textSize = textSize;
@@ -237,4 +264,13 @@ public class TextEditorPanel extends JPanel {
             font = UIManager.getDefaults().getFont("TextPane.font");
         }
     }
+<<<<<<< Updated upstream
 }
+=======
+
+    public void addText(StringBuilder string) {
+        pane.setText(string.toString());
+    }
+
+}
+>>>>>>> Stashed changes

@@ -51,8 +51,6 @@ public class ToolbarFunctions {
 
                 panel.tabbedPaneTab.setTitle(file.getName());
 
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -83,8 +81,6 @@ public class ToolbarFunctions {
             temp.addText(stringBuffer);
             temp.setSaved(file);
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -127,6 +123,7 @@ public class ToolbarFunctions {
         int tabNumber = ideWindow.textEditor.getSelectedIndex();
         TextEditorPanel panel = (TextEditorPanel) ideWindow.textEditor.getComponentAt(tabNumber);
 
+
         if (panel.getFile() == null) {
             saveAs(ideWindow);
         } else {
@@ -135,7 +132,7 @@ public class ToolbarFunctions {
                 PrintWriter out = new PrintWriter(file);
                 out.write(panel.getText());
                 out.close();
-                ideWindow.textEditor.setTitleAt(tabNumber, file.getName());
+                panel.tabbedPaneTab.setTitle(file.getName());
                 panel.setSaved(file);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -162,7 +159,7 @@ public class ToolbarFunctions {
                 PrintWriter out = new PrintWriter(file);
                 out.write(panel.getText());
                 out.close();
-                ideWindow.textEditor.setTitleAt(tabNumber, file.getName());
+                panel.tabbedPaneTab.setTitle(file.getName());
                 panel.setSaved(file);
             } catch (IOException e) {
                 e.printStackTrace();

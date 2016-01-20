@@ -39,6 +39,8 @@ public class TabbedPaneTab extends JPanel {
 
         isEditedButton = new JButton(isEdited);
         isEditedButton.setBorderPainted(false);
+        isEditedButton.setContentAreaFilled(false);
+        isEditedButton.setFocusPainted(false);
         isEditedButton.setPreferredSize(new Dimension(16, 16));
         //close.addActionListener(new MenuActionListener("Close Window", ideWindow));
         close.addActionListener(new ActionListener() {
