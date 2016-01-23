@@ -12,37 +12,46 @@ public class TabbedPaneTab extends JPanel {
     private JPanel panel;
     private JLabel label;
     private String title;
+    public int ID;
     private boolean hasIcon;
-    public TabbedPaneTab(final String title, final IDEWindow ideWindow) {
+    public TabbedPaneTab(final String title,final int ID ,final IDEWindow ideWindow) {
         this.title=title;
+        this.ID=ID;
         panel = this;
-         label = new JLabel(title);
-        ImageIcon icon;
+        label = new JLabel(title);
+        label.setOpaque(false);
+        ImageIcon closeButtonIcon;
+        ImageIcon closeButtonHoverIcon;
         ImageIcon isEdited;
         if (System.getProperty("user.dir").contains("/src")) {
-            icon = new ImageIcon("../resources/closebutton.png");
+            closeButtonIcon = new ImageIcon("../resources/closebutton.png");
+            closeButtonHoverIcon = new ImageIcon("../resources/closebuttonhover.png");
             isEdited = new ImageIcon("../resources/Super-Mario-Pixel.png");
         } else {
-            icon = new ImageIcon("resources/closebutton.png");
+            closeButtonIcon = new ImageIcon("resources/closebutton.png");
+            closeButtonHoverIcon = new ImageIcon("resources/closebuttonhover.png");
             isEdited = new ImageIcon("resources/Super-Mario-Pixel.png");
         }
-        JButton close = new JButton(icon);
+        JButton close = new JButton(closeButtonIcon);
+        close.setRolloverIcon(closeButtonHoverIcon);
+        close.setBorderPainted(false);
         close.setPreferredSize(new Dimension(15,15));
 
         isEditedButton = new JButton(isEdited);
+        isEditedButton.setBorderPainted(false);
         isEditedButton.setPreferredSize(new Dimension(16, 16));
         //close.addActionListener(new MenuActionListener("Close Window", ideWindow));
         close.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Closing Window");
+                System.out.println("Closing Tab");
 
                 if (ideWindow.textEditor.getTabCount() <= 0) {
                     ideWindow.dispose();
                 } else {
                     int tabNumber=0;
                     for(int i=0;i<ideWindow.textEditor.getTabCount();i++) {
-                        System.out.println(title + ":" + ideWindow.textEditor.getTitleAt(i));
-                        if(title.equals(ideWindow.textEditor.getTitleAt(i))) {
+                        TabbedPaneTab temp = (TabbedPaneTab) ideWindow.textEditor.getTabComponentAt(i);
+                        if(ID == temp.ID) {
                             tabNumber = i;
                         }
                     }
@@ -74,6 +83,8 @@ public class TabbedPaneTab extends JPanel {
         add(label, BorderLayout.CENTER);
         add(close, BorderLayout.EAST);
         removeIcon();
+
+        setOpaque(false);
     }
     public void addIcon() {
         hasIcon = true;

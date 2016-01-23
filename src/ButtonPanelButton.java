@@ -34,6 +34,8 @@ public class ButtonPanelButton extends JButton implements ActionListener {
             ToolbarFunctions.undo(ideWindow);
         } else if (e.getActionCommand().equals("Redo")) {
             ToolbarFunctions.redo(ideWindow);
+        } else if(e.getActionCommand().equals("Open Terminal")) {
+            ToolbarFunctions.openTerminal(ideWindow);
         } else {
             System.out.println("Unknown Button");
         }

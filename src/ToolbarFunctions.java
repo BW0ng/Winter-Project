@@ -62,7 +62,7 @@ public class ToolbarFunctions {
     public static void open(File file, IDEWindow ideWindow) {
 
         System.out.println("Opening File from JTree");
-        TabbedPaneTab tabbedPaneTab = new TabbedPaneTab(file.getName(), ideWindow);
+        TabbedPaneTab tabbedPaneTab = new TabbedPaneTab(file.getName(), ideWindow.numberForTextWindows++, ideWindow);
         TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
                 ideWindow.textEditor, ideWindow, tabbedPaneTab);
         ideWindow.textEditor.add(file.getName(), temp);
@@ -214,9 +214,9 @@ public class ToolbarFunctions {
         // TODO Need to add it so it splitPanel works with JTextEditorPane
         TabbedPaneTab tabbedPaneTab;
         if(ideWindow.numberOfTextWindows == 0) {
-            tabbedPaneTab = new TabbedPaneTab("New File ", ideWindow);
+            tabbedPaneTab = new TabbedPaneTab("New File ", ideWindow.numberForTextWindows++, ideWindow);
         } else {
-            tabbedPaneTab = new TabbedPaneTab("New File " + ideWindow.numberOfTextWindows, ideWindow);
+            tabbedPaneTab = new TabbedPaneTab("New File ", ideWindow.numberForTextWindows++ , ideWindow);
         }
         TextEditorPanel temp = new TextEditorPanel(ideWindow.numberOfTextWindows,
                 ideWindow.textEditor, ideWindow, tabbedPaneTab );
@@ -244,6 +244,9 @@ public class ToolbarFunctions {
         }
     }
 
+    public static void openTerminal(IDEWindow ideWindow) {
+        ideWindow.jspWhole.setDividerLocation(ideWindow.jspWholeDefualtLocation);
+    }
 
     public static void cannotFind(IDEWindow ideWindow) {
 

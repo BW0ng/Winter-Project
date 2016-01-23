@@ -28,6 +28,8 @@ public class ButtonPanel extends JPanel {
                 new ImageIcon(directory + "Undo-icon.png"), ideWindow);
         ButtonPanelButton redo = new ButtonPanelButton("Redo",
                 new ImageIcon(directory + "Redo-icon.png"), ideWindow);
+        ButtonPanelButton openTerminal = new ButtonPanelButton("Open Terminal",
+                new ImageIcon(directory + "Terminal-icon.png"), ideWindow);
 
         JSeparator separator = new JSeparator(SwingConstants.VERTICAL);
         separator.setPreferredSize(new Dimension(3, 20));
@@ -37,6 +39,7 @@ public class ButtonPanel extends JPanel {
         add(separator);
         add(undo);
         add(redo);
+        add(openTerminal);
 
 
     }

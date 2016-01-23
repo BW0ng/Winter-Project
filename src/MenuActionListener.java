@@ -26,28 +26,24 @@ public class MenuActionListener implements ActionListener {
         String s = e.getActionCommand();
         if (s.equals("Open")) {
             ToolbarFunctions.open(ideWindow);
-
         } else if (s.equals("Save")) {
-            System.out.println("Save");
             ToolbarFunctions.save(e.getSource(), ideWindow);
-
         } else if (s.equals("Save As")) {
-            System.out.println("Save As");
             ToolbarFunctions.saveAs(ideWindow);
         } else if (s.equals("Close Window")) {
             ToolbarFunctions.close(e.getSource(), ideWindow);
         } else if (s.equals("Quit IDE")) {
             ToolbarFunctions.quit(ideWindow);
-
         } else if (s.equals("New Window")) {
             ToolbarFunctions.newWindow(ideWindow);
         } else if (s.equals("Text File")) {
             ToolbarFunctions.newTextFile(ideWindow);
-            System.out.println("New Text File");
         } else if (s.equals("Undo")) {
             ToolbarFunctions.undo(ideWindow);
         } else if (s.equals("Redo")) {
             ToolbarFunctions.redo(ideWindow);
+        } else if(e.getActionCommand().equals("Open Terminal")) {
+            ToolbarFunctions.openTerminal(ideWindow);
         } else {
             System.out.println(s);
             ToolbarFunctions.cannotFind(ideWindow);
